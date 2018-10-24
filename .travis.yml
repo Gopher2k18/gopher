@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "lts/*"
+
+dist: trusty
+sudo: required
+
+addons:
+  chrome: stable
+
+branches:
+  only:
+  - master
+
+script:
+  - ng build --prod --aot
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
