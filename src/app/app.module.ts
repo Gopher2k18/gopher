@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import {BackendconnectorService} from './services/backendconnector.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [BackendconnectorService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

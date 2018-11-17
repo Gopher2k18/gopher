@@ -5,4 +5,5 @@ export interface Message {
   channel: string;
   tags: string[];
   time_send: string;
+  
 }

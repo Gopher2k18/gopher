@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http'
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BackendconnectorService {
 
-  constructor() { }
+  slackMessagesUrl = 'localhost:3000/slack'
+
+  constructor(private http: HttpClient) { }
+
+
+  public getSlackMessages(){
+    return this.http.get(this.slackMessagesUrl);
+  }
 }
