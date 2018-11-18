@@ -1,0 +1,23 @@
+ul {
+  list-style-type: none;
+}
+
+ul.horizontal li{
+  display: inline;
+}
+
+.withgap{
+  margin-right: 20px;
+}
+
+.toright{
+  text-align: right;
+}
+
+
+div {
+  border-width:thin;
+  border-style:dotted;
+  max-width: 800px;
+  margin: 10px;
+}

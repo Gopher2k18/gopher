@@ -1,3 +1,14 @@
-<p>
-  feed works!
-</p>
+<ul>
+  <li *ngFor = "let message of messages">
+    <div>
+      <h3>Channel: {{message.channel}}</h3>
+      <p>From: {{message.user}}: {{message.message}}</p>
+      <ul class="horizontal" li>
+      <li class="withgap" *ngFor = "let tag of message.tags">
+        {{tag}}
+      </li>
+      </ul>
+      <p class="toright">Send at: {{message.time_send}}</p>
+    </div>
+  </li>
+</ul>

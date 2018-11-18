@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Message} from '../../models/message'
+import {BackendconnectorService} from '../../services/backendconnector.service'
 
 @Component({
   selector: 'app-feed',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  constructor() { }
+  message: Message = {
+    id: 0,
+    user: '',
+    message: '',
+    channel: '',
+    tags: [],
+    time_send: ''
+  };
+
+  text: any;
+
+  messages: Message[] = [];
+
+  constructor(private backendconnectorService: BackendconnectorService) { }
 
   ngOnInit() {
+    this.backendconnectorService.getSlackMessages().subscribe(
+      (response: Message[]) => {
+      this.messages = response;
+    });
   }
 
 }

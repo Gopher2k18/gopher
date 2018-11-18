@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http'
 @Injectable()
 export class BackendconnectorService {
 
-  slackMessagesUrl = 'localhost:3000/slack'
+  slackMessagesUrl = 'http://localhost:3000/slack'
 
   constructor(private http: HttpClient) { }
 

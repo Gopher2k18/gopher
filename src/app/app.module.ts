@@ -6,15 +6,18 @@ import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import {BackendconnectorService} from './services/backendconnector.service';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
-    CalendarComponent
+    CalendarComponent,
+    TopbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [BackendconnectorService, HttpClientModule],
   bootstrap: [AppComponent]
