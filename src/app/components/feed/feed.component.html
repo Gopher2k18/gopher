@@ -1,0 +1,19 @@
+<ul>
+  <li *ngFor = "let message of messages">
+    <div class="outer">
+      <h3>Channel: {{message.channel}}</h3>
+      <p>From: {{message.user}}: {{message.message}}</p>
+      <div class="flexbox">
+        <div>Tags:</div>
+        <div>
+          <ul class="horizontal" li>
+            <li class="withgap" *ngFor = "let tag of message.tags">
+              {{tag}}
+            </li>
+          </ul>
+        </div>
+        <div>Send at: {{message.time_send}}</div>
+      </div>
+    </div>
+  </li>
+</ul>
