@@ -3,7 +3,8 @@ export interface Message {
   user: string;
   message: string;
   channel: string;
+  location: string;
   tags: string[];
   time_send: string;
-  
+
 }

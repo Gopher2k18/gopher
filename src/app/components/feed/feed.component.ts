@@ -14,6 +14,7 @@ export class FeedComponent implements OnInit {
     user: '',
     message: '',
     channel: '',
+    location: '',
     tags: [],
     time_send: ''
   };
@@ -21,14 +22,35 @@ export class FeedComponent implements OnInit {
   text: any;
 
   messages: Message[] = [];
+  filteredmessages: Message[] = [];
 
   constructor(private backendconnectorService: BackendconnectorService) { }
+
+
+  applyFilters(filtered: Message[]){
+    for(let mes in this.messages){
+        this.filteredmessages.push(mes);
+    }
+  }
 
   ngOnInit() {
     this.backendconnectorService.getSlackMessages().subscribe(
       (response: Message[]) => {
+      console.log('see');
       this.messages = response;
-    });
+      console.log(this.messages.length)
+      for(let i = 0; i<this.messages.length;++i){
+          if(this.messages[i].location==='Helsinki'){
+            console.log(this.messages[i].message);
+          }
+      }
+
+    })/*.then({
+      this.applyFilters(this.messages);
+    });*/
   }
+
+
+
 
 }
