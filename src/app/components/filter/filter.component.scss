@@ -1,18 +1,28 @@
 
 .checkbox{
-  padding: 20px;
+  padding: 10px;
   border-style: solid;
   background-color: #DDDDDD;
-  display: inline-block;
-  max-width: 50%;
-  min-width:20%;
+  width:40%;
+}
 
+#searchbox{
+  margin-left: 5%;
 }
 
 .box{
-  margin:20px;
+
+  margin-right: auto;
+  margin-top: 10px;
 }
 
 label{
-  margin-right: 10px;
+  margin-right: 5%;
+}
+
+.flexwrap{
+  display: flex;
+  flex-wrap: wrap;
+  align-content:space-between;
+  margin-left:5%;
 }
