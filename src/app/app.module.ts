@@ -7,13 +7,15 @@ import { FeedComponent } from './components/feed/feed.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import {BackendconnectorService} from './services/backendconnector.service';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
     CalendarComponent,
-    TopbarComponent
+    TopbarComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
