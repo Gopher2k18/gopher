@@ -26,12 +26,12 @@ export class FeedComponent implements OnInit {
 
   constructor(private backendconnectorService: BackendconnectorService) { }
 
-
+/*
   applyFilters(filtered: Message[]){
     for(let mes in this.messages){
         this.filteredmessages.push(mes);
     }
-  }
+  }*/
 
   ngOnInit() {
     this.backendconnectorService.getSlackMessages().subscribe(
