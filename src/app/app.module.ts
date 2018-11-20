@@ -15,6 +15,7 @@ import {BackendconnectorService} from './services/backendconnector.service';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { TabbarComponent } from './components/tabbar/tabbar.component';
 import { CalendarListComponent } from './components/calendar-list/calendar-list.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { CalendarListComponent } from './components/calendar-list/calendar-list.
     CalendarListComponent,
     TopbarComponent,
     TabbarComponent,
-    CalendarListComponent
+    CalendarListComponent,
+    TopbarComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
