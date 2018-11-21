@@ -5,7 +5,9 @@
       <p>{{message.location}}</p>
       <p>From: {{message.user}}: {{message.message}}</p>
       <div class="flexbox">
+
         <div>Tags:</div>
+
         <div>
           <ul class="horizontal" li>
             <li class="withgap" *ngFor = "let tag of message.tags">
@@ -13,8 +15,9 @@
             </li>
           </ul>
         </div>
-        <div>Send at: {{message.time_send}}</div>
       </div>
+      <p>Send at: {{message.time_send}}</p>
     </div>
+    
   </li>
 </ul>
