@@ -8,6 +8,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { FullCalendarModule } from 'ng-fullcalendar'
+import {AppRoutingModule} from './app-routing.module'
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
@@ -37,7 +38,8 @@ import { FilterComponent } from './components/filter/filter.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    FullCalendarModule
+    FullCalendarModule,
+    AppRoutingModule
   ],
   providers: [BackendconnectorService, HttpClientModule],
   bootstrap: [AppComponent]

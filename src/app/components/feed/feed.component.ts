@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Message} from '../../models/message'
 import {BackendconnectorService} from '../../services/backendconnector.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -24,7 +25,8 @@ export class FeedComponent implements OnInit {
   messages: Message[] = [];
   filteredmessages: Message[] = [];
 
-  constructor(private backendconnectorService: BackendconnectorService) { }
+  constructor(private backendconnectorService: BackendconnectorService,
+  private router: Router) { }
 
 /*
   applyFilters(filtered: Message[]){
