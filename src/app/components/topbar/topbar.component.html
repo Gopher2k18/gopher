@@ -1,18 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button [matMenuTriggerFor]="search">
+    <button mat-icon-button (click) = "goToFilter()">
         <mat-icon>search</mat-icon>
     </button>
-    <mat-menu #search= "matMenu">
-      <button mat-menu-item>
-        <mat-icon>location_on</mat-icon>
-        <span>location</span>
-       </button>
-    </mat-menu>
+
+
 
     <span class="example-fill-remaining-space"></span>
 
-    <span>GoFore</span>
+    <span>G4</span>
 
     <span class="example-fill-remaining-space"></span>
 

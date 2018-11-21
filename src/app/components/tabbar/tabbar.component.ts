@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tabbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToFeed(){
+    console.log('go to feed');
+    this.router.navigate(['feed']);
   }
 
 }

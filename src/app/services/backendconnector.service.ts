@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http'
 @Injectable()
 export class BackendconnectorService {
 
-  slackMessagesUrl = 'http://localhost:3000/slack'
+  slackMessagesUrl = 'https://gopher-backend.herokuapp.com/events'
 
   constructor(private http: HttpClient) { }
 
@@ -12,4 +12,6 @@ export class BackendconnectorService {
   public getSlackMessages(){
     return this.http.get(this.slackMessagesUrl);
   }
+
+
 }

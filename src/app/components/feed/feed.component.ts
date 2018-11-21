@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class FeedComponent implements OnInit {
 
   message: Message = {
-    id: 0,
+    _id: '',
     user: '',
     message: '',
     channel: '',
@@ -45,7 +45,10 @@ export class FeedComponent implements OnInit {
           if(this.messages[i].location==='Helsinki'){
             console.log(this.messages[i].message);
           }
-      }
+      }/*
+      response=>{
+        console.log(response);
+      }*/
 
     })/*.then({
       this.applyFilters(this.messages);
