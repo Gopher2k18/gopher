@@ -1,5 +1,6 @@
 ul {
   list-style-type: none;
+  padding-left:0;
 }
 
 ul.horizontal li{
@@ -8,11 +9,6 @@ ul.horizontal li{
 
 .withgap{
   margin-right: 20px;
-}
-
-.toright{
-  display: inline;
-
 }
 
 .flexbox{
@@ -40,8 +36,15 @@ div.outer {
     margin: 4px 2px;
     cursor: pointer;
   border-radius: 60%;
+  elevation: 30deg;
 
 }
+
+.star{
+  background-color: yellow;
+  elevation: 30deg;
+}
+
 
 .selected {
   background-color: aqua !important;
@@ -49,7 +52,7 @@ div.outer {
 }
 
 .fill-remaining-space {
-  /* This fills the remaining space, by using flexbox. 
+  /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
