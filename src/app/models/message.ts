@@ -6,5 +6,5 @@ export interface Message {
   location: string;
   tags: string[];
   time_send: string;
-
+  favourite: boolean;
 }

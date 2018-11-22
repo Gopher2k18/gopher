@@ -7,7 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { FullCalendarModule } from 'ng-fullcalendar'
+import {MatInputModule} from '@angular/material/input'
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
@@ -16,6 +16,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { TabbarComponent } from './components/tabbar/tabbar.component';
 import { CalendarListComponent } from './components/calendar-list/calendar-list.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { LogInPageComponent } from './components/log-in-page/log-in-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FilterComponent } from './components/filter/filter.component';
     TabbarComponent,
     CalendarListComponent,
     TopbarComponent,
-    FilterComponent
+    FilterComponent,
+    LogInPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { FilterComponent } from './components/filter/filter.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    FullCalendarModule
+    MatInputModule
   ],
   providers: [BackendconnectorService, HttpClientModule],
   bootstrap: [AppComponent]

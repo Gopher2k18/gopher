@@ -1,6 +1,22 @@
 .container {
- 
+
   background: rgba(114, 186, 94, 0.05);
+
+}
+
+.main {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  width:100%;
+
+  align-items: center;
+
+  margin-left: auto;
+
+  margin-right: auto;
 
 }
 
