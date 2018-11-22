@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Message} from '../../models/message'
-import {BackendconnectorService} from '../../services/backendconnector.service'
+import {Message} from '../../models/message';
+import {BackendconnectorService} from '../../services/backendconnector.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -17,10 +17,16 @@ export class FeedComponent implements OnInit {
     channel: '',
     location: '',
     tags: [],
-    time_send: ''
+    time_send: '',
+    favourite: false
   };
 
   text: any;
+  //favourite:boolean = false;
+
+ // toggle():void{
+ //   this.favourite = !this.favourite;
+ // }
 
   messages: Message[] = [];
   filteredmessages: Message[] = [];
@@ -31,9 +37,16 @@ export class FeedComponent implements OnInit {
 /*
   applyFilters(filtered: Message[]){
     for(let mes in this.messages){
-        this.filteredmessages.push(mes);
+        //this.filteredmessages.push(mes);
     }
   }*/
+
+  selectedMessage: Message;
+
+  onSelect(message: Message): void {
+    this.selectedMessage = message;
+    this.selectedMessage.favourite = !this.selectedMessage.favourite;
+  }
 
   ngOnInit() {
     this.backendconnectorService.getSlackMessages().subscribe(
@@ -53,9 +66,6 @@ export class FeedComponent implements OnInit {
     })/*.then({
       this.applyFilters(this.messages);
     });*/
+
   }
-
-
-
-
 }

@@ -1,0 +1,16 @@
+<div (*ngIf="!loggedIn")>
+
+<form class="example-form">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="User Name:">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password:">
+    </mat-form-field>
+
+</form>
+
+<button mat-flat-button (click)="logIn()">Login</button>
+</div>

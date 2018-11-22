@@ -26,3 +26,30 @@ div.outer {
   margin: 10px;
   padding: 10px;
 }
+
+.starbutton {
+
+  background-color: yellow;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  border-radius: 60%;
+
+}
+
+.selected {
+  background-color: aqua !important;
+  color: whitesmoke;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
