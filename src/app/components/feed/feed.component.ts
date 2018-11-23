@@ -53,6 +53,7 @@ export class FeedComponent implements OnInit {
       (response: Message[]) => {
       console.log('see');
       this.messages = response;
+      this.messages.reverse();
       console.log(this.messages.length)
       for(let i = 0; i<this.messages.length;++i){
           if(this.messages[i].location==='Helsinki'){

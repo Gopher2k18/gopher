@@ -4,7 +4,7 @@
       <h3>Channel: {{message.channel}}
       </h3>
 
-      <button mat-mini-fab (click)="onSelect(message)">
+      <button mat-mini-fab (click)="onSelect(message)" class="mat-elevation-z0">
         <mat-icon *ngIf="!message.favourite">star_border</mat-icon>
         <mat-icon *ngIf="message.favourite">star</mat-icon>
       </button>
