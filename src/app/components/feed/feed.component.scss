@@ -1,6 +1,6 @@
 ul {
   list-style-type: none;
-  padding-left:0;
+  padding-left:12px;
 }
 
 ul.horizontal li{
@@ -54,3 +54,4 @@ div.outer {
   Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+

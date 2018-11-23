@@ -1,4 +1,4 @@
-<div (*ngIf="!loggedIn")>
+<span class="page">
 
 <form class="example-form">
 
@@ -6,11 +6,12 @@
         <input matInput placeholder="User Name:">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Password:">
+    <mat-form-field>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </mat-form-field>
 
 </form>
 
-<button mat-flat-button (click)="logIn()">Login</button>
-</div>
+<button mat-flat-button (click)="goToFeed()">Login</button>
+</span>

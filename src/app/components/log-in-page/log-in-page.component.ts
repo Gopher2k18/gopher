@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-log-in-page',
@@ -8,12 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   loggedIn = false;
 
+  hide = true;
+
   logIn(){
     this.loggedIn = !this.loggedIn;
+  }
+
+  goToFeed(){
+    console.log('go to feed');
+    this.router.navigate(['feed']);
   }
 
   ngOnInit() {
