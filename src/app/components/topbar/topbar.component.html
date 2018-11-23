@@ -16,7 +16,7 @@
       <mat-icon>settings</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click) = "goToLogin()">
         <mat-icon>account_circle</mat-icon>
         <span>log in</span>
       </button>
