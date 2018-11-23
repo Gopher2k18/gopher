@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import {Connection} from '../models/connection';
 
 @Injectable()
 export class BackendconnectorService {
 
-  slackMessagesUrl = Connection.address;
+  slackMessagesUrl = 'https://gopher-backend.herokuapp.com/events';
 
   constructor(private http: HttpClient) { }
 
