@@ -18,4 +18,8 @@ export class TabbarComponent implements OnInit {
     this.router.navigate(['feed']);
   }
 
+  goToCalendar(){
+    this.router.navigate(['calendar']);
+  }
+
 }

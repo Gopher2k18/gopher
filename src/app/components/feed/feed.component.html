@@ -1,7 +1,14 @@
 <ul>
   <li *ngFor = "let message of messages">
     <div class="outer">
-      <h3>Channel: {{message.channel}}</h3>
+      <h3>Channel: {{message.channel}}
+      </h3>
+
+      <button mat-mini-fab (click)="onSelect(message)" class="mat-elevation-z0">
+        <mat-icon *ngIf="!message.favourite">star_border</mat-icon>
+        <mat-icon *ngIf="message.favourite">star</mat-icon>
+      </button>
+
       <p>{{message.location}}</p>
       <p>From: {{message.user}}: {{message.message}}</p>
       <div class="flexbox">
@@ -18,6 +25,6 @@
       </div>
       <p>Send at: {{message.time_send}}</p>
     </div>
-    
+
   </li>
 </ul>
