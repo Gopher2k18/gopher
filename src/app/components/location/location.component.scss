@@ -1,0 +1,32 @@
+.flexwrap{
+  display: flex;
+  flex-wrap: wrap;
+  align-content:space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.smaller_buttons{
+
+  width:39%;
+  margin-left: 4%;
+  margin-right: 4%;
+
+}
+
+.box{
+  padding: 10px;
+  margin-top:20px;
+}
+
+h1{
+  text-align: center;
+}
+
+.unchosen{
+  background-color: #DDDDDD;
+}
+
+.chosen{
+  background-color: #AADDAA;
+}
