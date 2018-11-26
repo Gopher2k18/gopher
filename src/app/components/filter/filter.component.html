@@ -1,21 +1,15 @@
 <main>
-  <input type="text" placeholder="Search" class="box" id="searchbox"><br>
-  <div class = "flexwrap">
-    <div class= "checkbox box">
-      <label for="meeting">Meeting</label>
-      <input type="checkbox" name="meeting">
-    </div>
-    <div class = "checkbox box">
-      <label for="event">Event</label>
-      <input type="checkbox" name="event">
-    </div>
-    <div class = "checkbox box">
-      <label for="glub">Club</label>
-      <input type="checkbox" name="glub">
-    </div>
-    <div class = "checkbox box">
-      <label for="guild">Official stuff</label>
-      <input type="checkbox" name="guild">
-    </div>
+  <input type="text" placeholder="Search" class="box" id="searchbox">
+  <button mat-button>
+    <mat-icon>search</mat-icon>
+  </button><br>
+  <div class="flexwrap">
+    <button mat-raised-button class="smaller_buttons box">Default filters</button>
+    <button mat-raised-button class="smaller_buttons box">Clear filters</button>
+    <button mat-raised-button class="wider_buttons box">Location</button>
+    <mat-checkbox class="checkbox box">Meeting</mat-checkbox>
+    <mat-checkbox class="checkbox box">Event</mat-checkbox>
+    <mat-checkbox class="checkbox box">Club</mat-checkbox>
+    <mat-checkbox class="checkbox box">Official stuffs</mat-checkbox>
   </div>
 </main>

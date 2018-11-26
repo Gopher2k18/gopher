@@ -11,6 +11,7 @@ import { FullCalendarModule } from 'ng-fullcalendar';
 import {AppRoutingModule} from './app-routing.module';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
@@ -45,7 +46,8 @@ import { LogInPageComponent } from './components/log-in-page/log-in-page.compone
     FullCalendarModule,
     AppRoutingModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCheckboxModule
   ],
   providers: [BackendconnectorService, HttpClientModule],
   bootstrap: [AppComponent]
