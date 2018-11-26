@@ -1,0 +1,15 @@
+<h1>Location</h1>
+<div class="flexwrap">
+  <button mat-raised-button class="smaller_buttons box" (click) = "changeLocationInfo('helsinki')"
+  [ngClass] ="{chosen:locations.helsinki,unchosen:!locations.helsinki}">Helsinki</button>
+  <button mat-raised-button class="smaller_buttons box" (click) = "changeLocationInfo('tampere')"
+  [ngClass] ="{chosen:locations.tampere,unchosen:!locations.tampere}">Tampere</button>
+  <button mat-raised-button class="smaller_buttons box" (click) = "changeLocationInfo('jyvaskyla')"
+  [ngClass] ="{chosen:locations.jyvaskyla,unchosen:!locations.jyvaskyla}">Jyväskylä</button>
+  <button mat-raised-button class="smaller_buttons box" (click) = "changeLocationInfo('madrid')"
+  [ngClass] ="{chosen:locations.madrid, unchosen:!locations.madrid}">Madrid</button>
+  <button mat-raised-button class="smaller_buttons box" (click) = "changeLocationInfo('london')"
+  [ngClass] ="{chosen:locations.london,unchosen:!locations.london}">London</button>
+  <button mat-raised-button class="smaller_buttons box" (click) = "changeLocationInfo('new_york')"
+  [ngClass] ="{chosen:locations.new_york,unchosen:!locations.new_york}">New York</button>
+</div>

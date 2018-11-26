@@ -21,6 +21,7 @@ import { TabbarComponent } from './components/tabbar/tabbar.component';
 import { CalendarListComponent } from './components/calendar-list/calendar-list.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { LogInPageComponent } from './components/log-in-page/log-in-page.component';
+import { LocationComponent } from './components/location/location.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LogInPageComponent } from './components/log-in-page/log-in-page.compone
     CalendarListComponent,
     TopbarComponent,
     FilterComponent,
-    LogInPageComponent
+    LogInPageComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
