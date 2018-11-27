@@ -8,7 +8,7 @@
                           <mat-icon *ngIf="!message.favourite">star_border</mat-icon>
                           <mat-icon *ngIf="message.favourite">star</mat-icon>
                       </button>
-              <div style="font-size:6vw;display:block;width:90%;">From {{message.user}}: {{message.message}}</div>
+              <div style="font-size:5vw;display:block;width:90%;">From {{message.user}}: {{message.message}}</div>
               <div style="font-size:3vw;">Tags:
               <li class="withgap" style="font-size:3vw;" *ngFor = "let tag of message.tags">
                   {{tag}}
