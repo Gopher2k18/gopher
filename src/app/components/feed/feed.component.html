@@ -1,22 +1,19 @@
 <ul class="page">
   <li *ngFor = "let message of messages">
       <mat-card>
-          <mat-card-header>
-                  <mat-card-title>Channel: {{message.channel}}</mat-card-title>
-                  <mat-card-subtitle>{{message.location}}</mat-card-subtitle>
-                  <button mat-icon-button color="accent" (click)="onSelect(message)">
-                      <mat-icon *ngIf="!message.favourite">star_border</mat-icon>
-                      <mat-icon *ngIf="message.favourite">star</mat-icon>
-                  </button>
-          </mat-card-header>
           <mat-card-content>
-              <div>From: {{message.user}}: {{message.message}}</div>
-              <div>Tags:
-              <li class="withgap" *ngFor = "let tag of message.tags">
+                <span style="font-size:3vw;">Channel: {{message.channel}}</span>
+                      <button mat-icon-button color="accent" class ="star" (click)="onSelect(message)">
+                          <mat-icon *ngIf="!message.favourite">star_border</mat-icon>
+                          <mat-icon *ngIf="message.favourite">star</mat-icon>
+                      </button>
+              <div style="font-size:5vw;display:block;width:90%;">{{message.user}}: {{message.message}}</div>
+              <div style="font-size:3vw;">Tags:
+              <li class="withgap" style="font-size:3vw;" *ngFor = "let tag of message.tags">
                   {{tag}}
               </li>
               </div>
-              <div>Send at: {{message.time_send}}</div>
+              <div style="font-size:3vw;">Send at: {{message.time_send}} Location: {{message.location}}</div>
           </mat-card-content>
       </mat-card>
   </li>
