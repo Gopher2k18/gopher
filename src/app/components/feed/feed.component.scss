@@ -1,6 +1,7 @@
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
   width:100%;
 }
 
@@ -12,7 +13,6 @@ ul.horizontal li{
   display: inline;
 }
 
-
 .withgap{
   margin-right: 20px;
 }
@@ -20,27 +20,6 @@ ul.horizontal li{
 .flexbox{
   display: flex;
 }
-
-.starbutton {
-
-  background-color: yellow;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 60%;
-
-}
-
-.star{
-  background-color: yellow;
-}
-
 
 .selected {
   background-color: aqua !important;

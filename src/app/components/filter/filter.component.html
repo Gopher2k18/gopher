@@ -4,12 +4,16 @@
     <mat-icon>search</mat-icon>
   </button><br>
   <div class="flexwrap">
-    <button mat-raised-button class="smaller_buttons box">Default filters</button>
-    <button mat-raised-button class="smaller_buttons box">Clear filters</button>
-    <button mat-raised-button (click)="goToLocations()" class="wider_buttons box">Location</button>
-    <mat-checkbox class="checkbox box mat-elevation-z4">Meeting</mat-checkbox>
-    <mat-checkbox class="checkbox box mat-elevation-z4">Event</mat-checkbox>
-    <mat-checkbox class="checkbox box mat-elevation-z4">Club</mat-checkbox>
-    <mat-checkbox class="checkbox box mat-elevation-z4">Official stuffs</mat-checkbox>
+    <button mat-raised-button class="smaller_buttons">Default filters</button>
+    <button mat-raised-button class="smaller_buttons">Clear filters</button>
+    <button mat-raised-button (click)="goToLocations()" class="wider_buttons">Location</button>
+    <button mat-raised-button (click)="changeFilterInfo('meeting')" class="smaller_buttons"
+    [ngClass] ="{chosen:filters.meeting,unchosen:!filters.meeting}">Meeting</button>
+    <button mat-raised-button (click)="changeFilterInfo('event')" class="smaller_buttons"
+    [ngClass] ="{chosen:filters.event,unchosen:!filters.event}">Event</button>
+    <button mat-raised-button (click)="changeFilterInfo('club')" class="smaller_buttons"
+    [ngClass] ="{chosen:filters.club,unchosen:!filters.club}">Club</button>
+    <button mat-raised-button (click)="changeFilterInfo('glt')" class="smaller_buttons"
+    [ngClass] = {chosen:filters.glt,unchosen:!filters.glt}>Official stuffs</button>
   </div>
 </main>

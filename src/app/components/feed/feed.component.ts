@@ -51,7 +51,7 @@ export class FeedComponent implements OnInit {
   ngOnInit() {
     this.backendconnectorService.getSlackMessages().subscribe(
       (response: Message[]) => {
-      console.log('see');
+      console.log(response.length);
       this.messages = response;
       this.messages.reverse();
       console.log(this.messages.length)
