@@ -22,6 +22,7 @@ import { CalendarListComponent } from './components/calendar-list/calendar-list.
 import { FilterComponent } from './components/filter/filter.component';
 import { LogInPageComponent } from './components/log-in-page/log-in-page.component';
 import { LocationComponent } from './components/location/location.component';
+import { ConfeedComponent } from './components/confeed/confeed.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LocationComponent } from './components/location/location.component';
     TopbarComponent,
     FilterComponent,
     LogInPageComponent,
-    LocationComponent
+    LocationComponent,
+    ConfeedComponent
   ],
   imports: [
     BrowserModule,

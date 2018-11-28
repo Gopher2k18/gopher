@@ -1,0 +1,21 @@
+<ul>
+  <li *ngFor= "let blog of blogs">
+    <mat-card>
+      <mat-card-content>
+        <span style="font-size:5vw">Title: {{blog.name}}</span>
+        <button mat-icon-button color="accent" class ="star" (click)="onSelect(blog)">
+          <mat-icon *ngIf="!blog.favourite">star_border</mat-icon>
+          <mat-icon *ngIf="blog.favourite">star</mat-icon>
+        </button>
+        <a mat-icon-button href="{{blog.link}}"><mat-icon>open_in_new</mat-icon></a>
+        <div style="font-size:3vm;">{{blog.user}}</div>
+        <div style="font-size:3vw;">Tags:
+          <li class="withgap" style="font-size:3vw;" *ngFor = "let tag of blog.tags">
+              {{tag}}
+          </li>
+        </div>
+        <div style="font-size:3vw;">Send at: {{blog.ts}} </div>
+      </mat-card-content>
+    </mat-card>
+  </li>
+</ul>
