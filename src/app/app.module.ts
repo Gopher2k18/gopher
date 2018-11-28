@@ -23,6 +23,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { LogInPageComponent } from './components/log-in-page/log-in-page.component';
 import { LocationComponent } from './components/location/location.component';
 import { ConfeedComponent } from './components/confeed/confeed.component';
+import { FakeforconService } from './services/fakeforcon.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { ConfeedComponent } from './components/confeed/confeed.component';
     MatFormFieldModule,
     MatCheckboxModule
   ],
-  providers: [BackendconnectorService, HttpClientModule],
+  providers: [BackendconnectorService, FakeforconService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

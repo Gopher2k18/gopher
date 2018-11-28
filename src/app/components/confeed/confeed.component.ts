@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Blog} from '../../models/blog';
-
+import {FakeforconService} from '../../services/fakeforcon.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-confeed',
@@ -21,7 +22,8 @@ export class ConfeedComponent implements OnInit {
 
   blogs: Blog[] = [];
 
-  constructor() { }
+  constructor(private fakeforconService: FakeforconService,
+    private router: Router) { }
 
   selectedBlog: Blog;
 
@@ -31,6 +33,14 @@ export class ConfeedComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.fakeforconService.getConBlogs().subscribe(
+      (response: Blog[]) => {
+
+        console.log('show confluence');
+        this.blogs = response;
+        this.blogs.reverse();
+        
+      })
   }
 
 }
