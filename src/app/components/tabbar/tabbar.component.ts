@@ -22,4 +22,8 @@ export class TabbarComponent implements OnInit {
     this.router.navigate(['calendar']);
   }
 
+  goToConfeed(){
+    this.router.navigate(['confeed']);
+  }
+
 }
