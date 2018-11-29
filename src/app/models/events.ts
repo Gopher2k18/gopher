@@ -1,9 +1,11 @@
-export interface Events {
+import { Cardable } from './cardable';
+import { Card } from './card';
 
+export class Events {
   title: string;
   day: number;
   month: number;
   year: number;
-  organizer: string; 
-    
+  organizer: string;
+  isStared: Boolean = false;
 }

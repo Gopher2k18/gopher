@@ -10,16 +10,6 @@ import {Router} from '@angular/router';
 })
 export class FeedComponent implements OnInit {
 
-  message: Message = {
-    _id: '',
-    user: '',
-    message: '',
-    channel: '',
-    location: '',
-    tags: [],
-    time_send: '',
-    favourite: false
-  };
 
   text: any;
   //favourite:boolean = false;
@@ -52,7 +42,9 @@ ngOnInit() {
   this.backendconnectorService.getSlackMessages().subscribe(
     (response: Message[]) => {
       console.log(response.length);
-      this.messages = response;
+      response.forEach(element => {
+        this.messages.push(new Message(element));
+      });
       this.messages.reverse();
       console.log(this.messages.length)
       for(let i = 0; i<this.messages.length;++i){
