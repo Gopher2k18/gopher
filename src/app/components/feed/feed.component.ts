@@ -42,9 +42,11 @@ ngOnInit() {
   this.backendconnectorService.getSlackMessages().subscribe(
     (response: Message[]) => {
       console.log(response.length);
+
       response.forEach(element => {
         this.messages.push(new Message(element));
       });
+      
       this.messages.reverse();
       console.log(this.messages.length)
       for(let i = 0; i<this.messages.length;++i){

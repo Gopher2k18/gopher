@@ -10,15 +10,6 @@ import {Router} from '@angular/router';
 })
 export class ConfeedComponent implements OnInit {
 
-  blog: Blog = {
-    _id: '',
-    name: '',
-    user: '',
-    tags: [],
-    ts: '',
-    link: '',
-    favourite: false
-  }
 
   blogs: Blog[] = [];
 
@@ -37,8 +28,23 @@ export class ConfeedComponent implements OnInit {
       (response: Blog[]) => {
 
         console.log('show confluence');
-        this.blogs = response;
+
+        response.forEach(element => {
+          this.blogs.push(new Blog(element));
+        });
+        
         this.blogs.reverse();
+
+        for(let i=0;i<this.blogs.length;i++) {
+
+          if(this.blogs[i].ts != undefined)
+          {
+            const unixarry = this.blogs[i].ts.split('.');
+            const date = new Date(Number(unixarry[0])*1000);
+            this.blogs[i].ts = date.getHours()+':'+date.getMinutes()+' '+ date.getDate()+'.'+ date.getMonth()+ '.' +date.getFullYear();
+          }
+
+        }
         
       })
   }
