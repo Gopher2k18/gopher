@@ -24,6 +24,7 @@ import { LogInPageComponent } from './components/log-in-page/log-in-page.compone
 import { LocationComponent } from './components/location/location.component';
 import { ConfeedComponent } from './components/confeed/confeed.component';
 import { FakeforconService } from './services/fakeforcon.service';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FakeforconService } from './services/fakeforcon.service';
     FilterComponent,
     LogInPageComponent,
     LocationComponent,
-    ConfeedComponent
+    ConfeedComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

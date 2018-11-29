@@ -1,4 +1,4 @@
-export interface Blog {
+export class Blog {
     _id: string;
     name: string;
     user: string;
