@@ -5,8 +5,9 @@
       <mat-icon *ngIf="!card.starred">star_border</mat-icon>
       <mat-icon *ngIf="card.starred">star</mat-icon>
     </button>
-    <div style="font-size:5vw;">{{card.content}}</div>
-    <div style="font-size:3vw;">{{card.footer}}</div>
+    <a mat-icon-button><mat-icon>open_in_new</mat-icon></a>
+    <div style="font-size:5vw;width:95%;">{{card.content}}</div>
+    <div class="tag">{{card.footer}}</div>
     <div class="time">{{card.time}}</div>
   </mat-card-content>
 </mat-card>
