@@ -25,6 +25,7 @@ import { LocationComponent } from './components/location/location.component';
 import { ConfeedComponent } from './components/confeed/confeed.component';
 import { FakeforconService } from './services/fakeforcon.service';
 import { CardComponent } from './components/card/card.component';
+import { StarredComponent } from './components/starred/starred.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CardComponent } from './components/card/card.component';
     LogInPageComponent,
     LocationComponent,
     ConfeedComponent,
-    CardComponent
+    CardComponent,
+    StarredComponent
   ],
   imports: [
     BrowserModule,

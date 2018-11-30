@@ -7,5 +7,6 @@ export const Activity: Events[] = [
     {title:'event 3', day: 9, month: 11,year: 2018,organizer: 'a',isStared:false},
     {title:'event 4', day: 18, month: 11,year: 2018,organizer: 'a',isStared:false},
     {title:'event 5', day: 29, month: 11,year: 2018,organizer: 'a',isStared:false}
+];
 
-]
+
