@@ -1,3 +1,50 @@
-<header>CALENDAR</header>
+<header>December</header>
 
+<body>
+<p class="buttongroup">
+<mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </mat-button-toggle>    
+    <mat-button-toggle value="3">
+        <div>Mon</div>3
+    </mat-button-toggle>
+    <mat-button-toggle value="4">
+        <div>Tue</div>4
+    </mat-button-toggle>
+    <mat-button-toggle value="5">
+        <div>Wed</div>5
+    </mat-button-toggle >
+    <mat-button-toggle value="6">
+        <div>Thur</div>6
+    </mat-button-toggle>
+    <mat-button-toggle value="7">
+        <div>Fri</div>7
+    </mat-button-toggle>
+    <mat-button-toggle value="8">
+         <div>Sat</div>8
+    </mat-button-toggle>
+    <mat-button-toggle value="9">
+         <div>Sun</div>9
+    </mat-button-toggle>
+    <mat-button-toggle value="left">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </mat-button-toggle> 
+</mat-button-toggle-group>
+</p>
+
+<ul *ngFor="let event of events">
+    <li *ngIf="event.day == group.value">
+        <mat-card>
+            <mat-card-content>
+                <div style="font-size:3vw;">{{event.organizer}}</div>
+                <div style="font-size:5vw;">{{event.title}}</div>
+                <div style="font-size:3vw;">Date: {{event.day}}, {{event.month}} {{event.year}}</div>
+                <div style="font-size:3vw;">Venue: {{event.venue}}</div>
+            </mat-card-content>
+        </mat-card>
+    </li>
+</ul>
+
+</body>
 
