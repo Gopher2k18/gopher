@@ -11,14 +11,6 @@ import {Router} from '@angular/router';
 })
 export class FeedComponent implements OnInit {
 
-
-  text: any;
-  //favourite:boolean = false;
-
-  // toggle():void{
-  //   this.favourite = !this.favourite;
-  // }
-
   messages: Message[] = [];
   filteredmessages: Message[] = [];
   previous_time: string = '';
@@ -31,35 +23,27 @@ export class FeedComponent implements OnInit {
   constructor(private backendconnectorService: BackendconnectorService,
     private router: Router, private datePipe: DatePipe) { }
 
-    /*
-    applyFilters(filtered: Message[]){
-    for(let mes in this.messages){
-    //this.filteredmessages.push(mes);
-  }
+  /*
+  applyFilters(filtered: Message[]){
+  for(let mes in this.messages){
+  //this.filteredmessages.push(mes);
+}
 }*/
 
-selectedMessage: Message;
+  selectedMessage: Message;
 
-onSelect(message: Message): void {
-  this.selectedMessage = message;
-  this.selectedMessage.favourite = !this.selectedMessage.favourite;
-}
+  onSelect(message: Message): void {
+    this.selectedMessage = message;
+    this.selectedMessage.favourite = !this.selectedMessage.favourite;
+  }
 
-ngOnInit() {
-  this.backendconnectorService.getSlackMessages().subscribe(
-    (response: Message[]) => {
-      console.log(response.length);
-      response.forEach(element => {
-        this.messages.push(new Message(element));
-      });
-      this.messages.reverse();
-      //this.current_day = this.datePipe.transform(new Date());
-      //console.log('today is ' + this.current_day);
-
-
-
-    })
-
+  ngOnInit() {
+    this.backendconnectorService.getSlackMessages().subscribe({
+      next: (x: Message) => this.messages.push(x),
+      complete: () => {
+        this.messages.reverse();
+      }
+    });
   }
 
   show_date(given_date_string: string): boolean{

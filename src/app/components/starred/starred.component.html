@@ -1,0 +1,5 @@
+<ul class="page">
+  <li *ngFor="let message of messages">
+      <app-card [data]="message" *ngIf = "message.favourite"></app-card>
+  </li>
+</ul>

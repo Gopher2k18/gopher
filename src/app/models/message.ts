@@ -29,7 +29,7 @@ export class Message implements Cardable {
     this.location = obj.location;
     this.tags = obj.tags;
     this.time_send = obj.time_send;
-    this.favourite = obj.favourite;
+    this.favourite = false;
   }
 
   flip() {
@@ -37,7 +37,7 @@ export class Message implements Cardable {
   }
 
   toCard(): Card {
-    return new Card(this.channel, this.message,
+    return new Card(this.channel, this.message, '',
       this.favourite, this.tags.toString(), this.time_send);
   }
 }

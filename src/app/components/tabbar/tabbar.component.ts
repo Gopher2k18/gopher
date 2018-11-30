@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabbar',
@@ -13,17 +13,21 @@ export class TabbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToFeed(){
+  goToFeed() {
     console.log('go to feed');
     this.router.navigate(['feed']);
   }
 
-  goToCalendar(){
+  goToCalendar() {
     this.router.navigate(['calendar']);
   }
 
-  goToConfeed(){
+  goToConfeed() {
     this.router.navigate(['confeed']);
+  }
+
+  goToStar() {
+    this.router.navigate(['star']);
   }
 
 }
