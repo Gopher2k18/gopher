@@ -6,6 +6,7 @@ import {CalendarListComponent} from './components/calendar-list/calendar-list.co
 import {LogInPageComponent} from './components/log-in-page/log-in-page.component';
 import {LocationComponent} from './components/location/location.component';
 import {ConfeedComponent} from './components/confeed/confeed.component';
+import { StarredComponent } from './components/starred/starred.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'confeed',
     component: ConfeedComponent
+  },
+  {
+    path: 'star',
+    component: StarredComponent
   }
 ];
 
