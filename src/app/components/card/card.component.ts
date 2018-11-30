@@ -26,6 +26,7 @@ export class CardComponent implements OnInit {
 
   star() {
     this.card.starred = !this.card.starred;
+    console.log(this.card.starred);
     this.data.flip();
   }
 

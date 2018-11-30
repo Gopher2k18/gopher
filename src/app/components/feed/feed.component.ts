@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Message} from '../../models/message';
+import {DatePipe} from '@angular/common';
 import {BackendconnectorService} from '../../services/backendconnector.service';
 import {Router} from '@angular/router';
 
@@ -20,9 +21,15 @@ export class FeedComponent implements OnInit {
 
   messages: Message[] = [];
   filteredmessages: Message[] = [];
+  previous_time: string = '';
+  current_day: string = '';
+  dates : string[] = [];
+  earlier_date: '';
+
+
 
   constructor(private backendconnectorService: BackendconnectorService,
-    private router: Router) { }
+    private router: Router, private datePipe: DatePipe) { }
 
     /*
     applyFilters(filtered: Message[]){
@@ -46,20 +53,33 @@ ngOnInit() {
         this.messages.push(new Message(element));
       });
       this.messages.reverse();
-      console.log(this.messages.length)
-      for(let i = 0; i<this.messages.length;++i){
-        if(this.messages[i].time_send != undefined){
-          //console.log(this.messages[i].time_send);
-          const unixarray = this.messages[i].time_send.split('.');
-          console.log(unixarray[0]);
-          const date = new Date(Number(unixarray[0])*1000);
-          console.log('date is' + date);
-          this.messages[i].time_send = date.getHours()+':' + date.getMinutes()+ ' ' + date.getDate()+'.'+ date.getMonth()+ '.' +date.getFullYear();
-        }
+      //this.current_day = this.datePipe.transform(new Date());
+      //console.log('today is ' + this.current_day);
 
-      }
+
 
     })
 
   }
+
+  show_date(given_date_string: string): boolean{
+
+    if(given_date_string != undefined){
+      const given_date = this.datePipe.transform(new Date(Number(given_date_string)*1000));
+      for(let i = 0; i < this.dates.length; ++i){
+        if(this.dates[i] == given_date){
+          console.log(given_date);
+          return false;
+        }
+      }
+
+      this.dates.push(given_date);
+      console.log('date pushed');
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
 }
