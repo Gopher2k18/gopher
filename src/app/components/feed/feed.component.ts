@@ -41,7 +41,6 @@ export class FeedComponent implements OnInit {
 
 
     show_date(date_to_shown: string): boolean{
-      console.log(this.date_map[date_to_shown]);
       return this.date_map.get(date_to_shown);
     }
 
@@ -65,7 +64,7 @@ export class FeedComponent implements OnInit {
         }
 
       }
-      
+
     }
 
   }
