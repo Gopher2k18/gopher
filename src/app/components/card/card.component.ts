@@ -1,3 +1,4 @@
+import { BackendconnectorService } from './../../services/backendconnector.service';
 import { Cardable } from './../../models/cardable';
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from './../../models/card';
@@ -14,17 +15,17 @@ export class CardComponent implements OnInit {
 
   public card: Card;
 
-  constructor() {
+  constructor(private backendconnectorService: BackendconnectorService) {
    }
 
   ngOnInit() {
     this.data = this.data;
-    this.card = this.data.toCard()
+    this.card = this.data.toCard();
   }
 
   star() {
     this.card.starred = !this.card.starred;
-    this.data.flip();
+    this.backendconnectorService.flip(this.card.time);
   }
 
 }

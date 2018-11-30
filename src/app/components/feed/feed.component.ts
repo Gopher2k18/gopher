@@ -10,14 +10,6 @@ import { Router } from '@angular/router';
 })
 export class FeedComponent implements OnInit {
 
-
-  text: any;
-  //favourite:boolean = false;
-
-  // toggle():void{
-  //   this.favourite = !this.favourite;
-  // }
-
   messages: Message[] = [];
   filteredmessages: Message[] = [];
 
@@ -40,21 +32,9 @@ export class FeedComponent implements OnInit {
 
   ngOnInit() {
     this.backendconnectorService.getSlackMessages().subscribe({
-      next: x => this.messages.push(x),
+      next: (x: Message) => this.messages.push(x),
       complete: () => {
         this.messages.reverse();
-        console.log(this.messages.length)
-        for (let i = 0; i < this.messages.length; ++i) {
-          if (this.messages[i].time_send != undefined) {
-            //console.log(this.messages[i].time_send);
-            const unixarray = this.messages[i].time_send.split('.');
-            console.log(unixarray[0]);
-            const date = new Date(Number(unixarray[0]) * 1000);
-            console.log('date is' + date);
-            this.messages[i].time_send = date.getHours() + ':' +
-              date.getMinutes() + ' ' + date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear();
-          }
-        }
       }
     });
   }

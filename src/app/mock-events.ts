@@ -8,4 +8,4 @@
 //     {title:'event 4', day: 18, month: 11,year: 2018,organizer: 'a'},
 //     {title:'event 5', day: 29, month: 11,year: 2018,organizer: 'a'}
 
-// ]
+//

@@ -32,7 +32,7 @@ export class BackendconnectorService {
 
   public getSlackMessages() {
     if (!(this.slackMessages === null)) {
-      console.log("OLD ONE")
+      console.log('OLD ONE');
       return from(this.slackMessages);
     } else {
       console.log(this.slackMessages);
@@ -52,6 +52,19 @@ export class BackendconnectorService {
       });
       return obs;
     }
+  }
+
+  public flip(ts) {
+    this.slackMessages.find((msg, idx, obj) => {
+      if (msg.time_send === ts) {
+        console.log(`Found it ${idx}, ${msg.favourite}`);
+        msg.flip();
+        obj[idx] = msg;
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 
   public getLocations() {
