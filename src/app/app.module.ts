@@ -28,6 +28,7 @@ import { FakeforconService } from './services/fakeforcon.service';
 import { CardComponent } from './components/card/card.component';
 import { StarredComponent } from './components/starred/starred.component';
 import { DateformatterPipe } from './pipes/dateformatter.pipe';
+import { TimePipe } from './pipes/time.pipe';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DateformatterPipe } from './pipes/dateformatter.pipe';
     ConfeedComponent,
     CardComponent,
     StarredComponent,
-    DateformatterPipe
+    DateformatterPipe,
+    TimePipe
   ],
   imports: [
     BrowserModule,
