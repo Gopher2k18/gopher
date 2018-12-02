@@ -12,6 +12,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatCheckboxModule} from '@angular/material/checkbox'
+import {DatePipe} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
@@ -26,6 +27,8 @@ import { ConfeedComponent } from './components/confeed/confeed.component';
 import { FakeforconService } from './services/fakeforcon.service';
 import { CardComponent } from './components/card/card.component';
 import { StarredComponent } from './components/starred/starred.component';
+import { DateformatterPipe } from './pipes/dateformatter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { StarredComponent } from './components/starred/starred.component';
     LocationComponent,
     ConfeedComponent,
     CardComponent,
-    StarredComponent
+    StarredComponent,
+    DateformatterPipe
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,7 @@ import { StarredComponent } from './components/starred/starred.component';
     MatFormFieldModule,
     MatCheckboxModule
   ],
-  providers: [BackendconnectorService, FakeforconService, HttpClientModule],
+  providers: [BackendconnectorService, FakeforconService, HttpClientModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

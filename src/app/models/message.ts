@@ -3,7 +3,7 @@ import { Card } from './card';
 
 
 export class Message implements Cardable {
-  private_id: string;
+  _id: string;
   user: string;
   message: string;
   channel: string;
@@ -13,7 +13,7 @@ export class Message implements Cardable {
   favourite: boolean;
 
   constructor(obj: {
-    private_id: string,
+    _id: string,
     user: string,
     message: string,
     channel: string,
@@ -22,7 +22,7 @@ export class Message implements Cardable {
     time_send: string,
     favourite: boolean
   }) {
-    this.private_id = obj.private_id;
+    this._id = obj._id;
     this.user = obj.user;
     this.message = obj.message;
     this.channel = obj.channel;
