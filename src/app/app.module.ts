@@ -27,6 +27,7 @@ import { ConfeedComponent } from './components/confeed/confeed.component';
 import { FakeforconService } from './services/fakeforcon.service';
 import { CardComponent } from './components/card/card.component';
 import { StarredComponent } from './components/starred/starred.component';
+import { DateformatterPipe } from './pipes/dateformatter.pipe';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { StarredComponent } from './components/starred/starred.component';
     LocationComponent,
     ConfeedComponent,
     CardComponent,
-    StarredComponent
+    StarredComponent,
+    DateformatterPipe
   ],
   imports: [
     BrowserModule,
