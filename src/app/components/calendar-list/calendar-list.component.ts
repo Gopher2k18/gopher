@@ -15,6 +15,7 @@ export class CalendarListComponent implements OnInit {
 
 
   selectedDay = '';
+  selectedId = 'empty';
 
   constructor(private calendarlistService: CalendarListService) {}
 
@@ -22,8 +23,13 @@ export class CalendarListComponent implements OnInit {
     this.getEvents();
   }
 
-  select(d: string) {
-    this.selectedDay = d;
+  select(id:string,d: string) {
+    console.log('current id: '+id);
+    console.log('sselected id: '+ this.selectedId);
+    this.selectedDay = d;    
+    document.getElementById(id).style.fontWeight = "bold";
+    document.getElementById(this.selectedId).style.fontWeight = "normal";
+    this.selectedId = id;
   }
 
   getEvents(): void {
