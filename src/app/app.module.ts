@@ -10,9 +10,11 @@ import {MatCardModule} from '@angular/material/card';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import {AppRoutingModule} from './app-routing.module';
 import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field'
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonToggleModule} from '@angular/material/button-toggle'
 import {DatePipe} from '@angular/common';
+
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
@@ -62,7 +64,8 @@ import { TimePipe } from './pipes/time.pipe';
     AppRoutingModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonToggleModule
   ],
   providers: [BackendconnectorService, FakeforconService, HttpClientModule, DatePipe],
   bootstrap: [AppComponent]

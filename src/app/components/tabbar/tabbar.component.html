@@ -1,26 +1,27 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
 
-      <button mat-fab color=rgb(40,40,40) (click) ="goToFeed()">
+      <button mat-fab color=rgb(40,40,40) style="bottom: 2px;" (click) ="goToFeed()">
         <img class="image" color="primary" src="assets/icons/SlackIcon.png">
       </button>
 
       <span class="example-fill-remaining-space"></span>
 
-      <button mat-fab color=rgb(40,40,40) (click) ="goToConfeed()">
+      <button mat-fab color=rgb(40,40,40) style="bottom: 2px;" (click) ="goToConfeed()">
         <img class="image" color="primary" src="assets/icons/confluence.png">
       </button>
 
       <span class="example-fill-remaining-space"></span>
 
-      <button mat-fab color=rgb(40,40,40) (click)="goToCalendar()">
+      <button mat-fab color=rgb(40,40,40) style="bottom: 2px;" (click)="goToCalendar()">
         <mat-icon color="primary">calendar_today</mat-icon>
       </button>
 
       <span class="example-fill-remaining-space"></span>
 
-      <button mat-fab color=rgb(40,40,40) (click)= "goToStar()">
-        <mat-icon>stars</mat-icon>
+
+      <button mat-fab color=rgb(40,40,40) style="bottom: 2px;">
+        <mat-icon color="primary">stars</mat-icon>
       </button>
 
     </mat-toolbar-row>

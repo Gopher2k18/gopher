@@ -1,8 +1,9 @@
 export class Events {
   title: string;
-  day: number;
-  month: number;
-  year: number;
+  day: string;
+  month: string;
+  year: string;
   organizer: string;
+  venue: string;
   isStared: Boolean = false;
 }

@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CalendarComponent } from 'ng-fullcalendar';
-import { Options } from 'fullcalendar';
 import {Events} from '../../models/events';
 import {Activity} from '../../mock-events';
-import { CalendarListService } from '../../calendar-list.service';
+import { CalendarListService } from '../../services/calendar-list.service';
 
 @Component({
   selector: 'app-calendar-list',
@@ -12,20 +10,25 @@ import { CalendarListService } from '../../calendar-list.service';
 })
 export class CalendarListComponent implements OnInit {
 
-  
-  //calendarOptions: Options;
- // @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
 
- // events: Events[];
+ events: Events[];
 
-  constructor() {}
 
-   // getEvents(): void {
-    //  this.CalendarListService.getEvents()
-     // .subscribe(events => this.events = events);
-   // }
+  selectedDay = '';
+
+  constructor(private calendarlistService: CalendarListService) {}
 
   ngOnInit() {
-
+    this.getEvents();
   }
+
+  select(d: string) {
+    this.selectedDay = d;
+  }
+
+  getEvents(): void {
+    this.calendarlistService.getEvents()
+    .subscribe(events => this.events = events);
+  }
+
 }
