@@ -1,40 +1,23 @@
 <header>December</header>
-
 <body>
-<p class="buttongroup">
-<mat-button-toggle-group #group="matButtonToggleGroup">
-    <mat-button-toggle value="left">
-        <mat-icon>keyboard_arrow_left</mat-icon>
-    </mat-button-toggle>    
-    <mat-button-toggle value="3">
-        <div>Mon</div>3
-    </mat-button-toggle>
-    <mat-button-toggle value="4">
-        <div>Tue</div>4
-    </mat-button-toggle>
-    <mat-button-toggle value="5">
-        <div>Wed</div>5
-    </mat-button-toggle >
-    <mat-button-toggle value="6">
-        <div>Thur</div>6
-    </mat-button-toggle>
-    <mat-button-toggle value="7">
-        <div>Fri</div>7
-    </mat-button-toggle>
-    <mat-button-toggle value="8">
-         <div>Sat</div>8
-    </mat-button-toggle>
-    <mat-button-toggle value="9">
-         <div>Sun</div>9
-    </mat-button-toggle>
-    <mat-button-toggle value="left">
-        <mat-icon>keyboard_arrow_right</mat-icon>
-    </mat-button-toggle> 
-</mat-button-toggle-group>
-</p>
+<table style="width: 100%;">
+    <tr>
+        <td (click)="select('left')" style="width: auto;"><mat-icon>keyboard_arrow_left</mat-icon></td>
+        <td (click)="select('10')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Mon 10</td>
+        <td (click)="select('11')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Tue 11</td>
+        <td (click)="select('12')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Wed 12</td>
+        <td (click)="select('13')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Thur 13</td>
+        <td (click)="select('14')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Fri 14</td>
+        <td (click)="select('15')" style="font-size:4vw;width: 11%;">Sat 15</td>
+        <td (click)="select('16')" style="font-size:4vw;width: 11%;">Sun 16</td>
+        <td (click)="select('right')" style="width: auto;"><mat-icon>keyboard_arrow_right</mat-icon></td>
+    </tr>
+</table>
+
+</body>
 
 <ul *ngFor="let event of events">
-    <li *ngIf="event.day == group.value">
+    <li *ngIf="event.day == selectedDay">
         <mat-card>
             <mat-card-content>
                 <div style="font-size:3vw;">{{event.organizer}}</div>
@@ -45,6 +28,3 @@
         </mat-card>
     </li>
 </ul>
-
-</body>
-

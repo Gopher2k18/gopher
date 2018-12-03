@@ -14,12 +14,16 @@ export class CalendarListComponent implements OnInit {
  events: Events[];
 
 
-
+  selectedDay = '';
 
   constructor(private calendarlistService: CalendarListService) {}
 
   ngOnInit() {
     this.getEvents();
+  }
+
+  select(d: string) {
+    this.selectedDay = d;
   }
 
   getEvents(): void {
