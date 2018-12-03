@@ -9,6 +9,8 @@ import { from, Observable } from 'rxjs';
 export class BackendconnectorService {
 
   slackMessagesUrl = 'https://gopher-backend.herokuapp.com/events';
+  confluenceUrl = 'https://gopher-backend.herokuapp.com/blogs';
+
   locations: Location = {
     helsinki: true,
     tampere: false,
@@ -29,6 +31,9 @@ export class BackendconnectorService {
 
   constructor(private http: HttpClient) { }
 
+  public getConBlogs() {
+    return this.http.get(this.confluenceUrl);
+  }
 
   public getSlackMessages() {
     if (!(this.slackMessages === null)) {
