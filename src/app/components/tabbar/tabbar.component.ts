@@ -27,6 +27,7 @@ export class TabbarComponent implements OnInit {
   }
 
   goToStar() {
+    console.log('go to star');
     this.router.navigate(['star']);
   }
 
