@@ -1,6 +1,3 @@
-import { Cardable } from './cardable';
-import { Card } from './card';
-
 export class Events {
   title: string;
   day: string;

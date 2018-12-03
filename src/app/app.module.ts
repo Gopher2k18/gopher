@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
+import {DatePipe} from '@angular/common';
+
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
@@ -26,6 +28,10 @@ import { LocationComponent } from './components/location/location.component';
 import { ConfeedComponent } from './components/confeed/confeed.component';
 import { FakeforconService } from './services/fakeforcon.service';
 import { CardComponent } from './components/card/card.component';
+import { StarredComponent } from './components/starred/starred.component';
+import { DateformatterPipe } from './pipes/dateformatter.pipe';
+import { TimePipe } from './pipes/time.pipe';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +46,10 @@ import { CardComponent } from './components/card/card.component';
     LogInPageComponent,
     LocationComponent,
     ConfeedComponent,
-    CardComponent
+    CardComponent,
+    StarredComponent,
+    DateformatterPipe,
+    TimePipe
   ],
   imports: [
     BrowserModule,
@@ -58,7 +67,7 @@ import { CardComponent } from './components/card/card.component';
     MatCheckboxModule,
     MatButtonToggleModule
   ],
-  providers: [BackendconnectorService, FakeforconService, HttpClientModule],
+  providers: [BackendconnectorService, FakeforconService, HttpClientModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

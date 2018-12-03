@@ -9,4 +9,6 @@ export const Activity: Events[] = [
     {title:'event 5', day: '11', month: 'December',year: '2018',organizer: 'Jason',venue: 'Helsinki Office',isStared:false},
     {title:'event 6', day: '13', month: 'December',year: '2018',organizer: 'CEO',venue: 'Helsinki Office',isStared:false}
 
-]
+];
+
+

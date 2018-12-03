@@ -1,5 +1,6 @@
 <ul class="page">
     <li *ngFor="let message of messages">
+        <p *ngIf="show_date(message.time_send)">{{message.time_send|dateformatter}}</p>
         <app-card [data]="message"></app-card>
     </li>
 </ul>
