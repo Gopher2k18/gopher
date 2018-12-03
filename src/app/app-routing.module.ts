@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/feed'
+    redirectTo: '/login'
   },
   {
     path: 'feed',

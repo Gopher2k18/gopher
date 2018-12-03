@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Blog} from '../../models/blog';
-import {FakeforconService} from '../../services/fakeforcon.service';
+import {BackendconnectorService} from '../../services/backendconnector.service';
 import {Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-confeed',
@@ -12,9 +13,10 @@ export class ConfeedComponent implements OnInit {
 
 
   blogs: Blog[] = [];
+  date_map = new Map<string,boolean>();
 
-  constructor(private fakeforconService: FakeforconService,
-    private router: Router) { }
+  constructor(private backendconnectorService: BackendconnectorService,
+    private router: Router, private datePipe: DatePipe) { }
 
   selectedBlog: Blog;
 
@@ -24,7 +26,7 @@ export class ConfeedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fakeforconService.getConBlogs().subscribe(
+    this.backendconnectorService.getConBlogs().subscribe(
       (response: Blog[]) => {
 
         console.log('show confluence');
@@ -32,21 +34,39 @@ export class ConfeedComponent implements OnInit {
         response.forEach(element => {
           this.blogs.push(new Blog(element));
         });
-        
+
         this.blogs.reverse();
+        this.collect_date_info();
 
-        for(let i=0;i<this.blogs.length;i++) {
 
-          if(this.blogs[i].ts != undefined)
-          {
-            const unixarry = this.blogs[i].ts.split('.');
-            const date = new Date(Number(unixarry[0])*1000);
-            this.blogs[i].ts = date.getHours()+':'+date.getMinutes()+' '+ date.getDate()+'.'+ date.getMonth()+ '.' +date.getFullYear();
-          }
 
-        }
-        
       })
+  }
+
+  show_date(date_to_shown: string): boolean{
+    return this.date_map.get(date_to_shown);
+  }
+
+  collect_date_info(){
+    let date_before = '';
+    let this_date = '';
+    console.log(this.blogs.length);
+    if(this.blogs.length>0){
+      this.date_map.set(this.blogs[0].ts,true);
+    }
+
+    for(let i = 1; i < this.blogs.length; ++i){
+
+      date_before = this.datePipe.transform(new Date(Number(this.blogs[i-1].ts)*1000));
+      this_date = this.datePipe.transform(new Date(Number(this.blogs[i].ts)*1000));
+      if(date_before == this_date){
+        this.date_map.set(this.blogs[i].ts,false);
+      }else{
+        this.date_map.set(this.blogs[i].ts,true);
+      }
+
+    }
+
   }
 
 }

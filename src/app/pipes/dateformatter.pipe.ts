@@ -11,10 +11,8 @@ export class DateformatterPipe implements PipeTransform {
   transform(value: string): string {
 
     const date = this.datePipe.transform(new Date(Number(value)*1000));
-    console.log(date);
     const day = new Date();
     const today = this.datePipe.transform(day);
-    console.log(today);
     const yesterday = this.datePipe.transform(day.setDate(day.getDate()-1));
     if (date == today){
       return 'Today';
