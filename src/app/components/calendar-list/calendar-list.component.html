@@ -1,19 +1,20 @@
+<p id="empty"></p>
 <header>December</header>
-<body>
-<table style="width: 100%;">
-    <tr>
-        <td (click)="select('left')" style="width: auto;"><mat-icon>keyboard_arrow_left</mat-icon></td>
-        <td (click)="select('10')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Mon 10</td>
-        <td (click)="select('11')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Tue 11</td>
-        <td (click)="select('12')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Wed 12</td>
-        <td (click)="select('13')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Thur 13</td>
-        <td (click)="select('14')" style="font-size:4vw;width: 11%;background-color: #ffff99;">Fri 14</td>
-        <td (click)="select('15')" style="font-size:4vw;width: 11%;">Sat 15</td>
-        <td (click)="select('16')" style="font-size:4vw;width: 11%;">Sun 16</td>
-        <td (click)="select('right')" style="width: auto;"><mat-icon>keyboard_arrow_right</mat-icon></td>
-    </tr>
-</table>
-
+<p id="empty"></p>
+<body>    
+    <table style="width: 100%;">
+        <tr>
+            <td id="left" (click)="select('left','left')" style="width: auto;"><mat-icon>keyboard_arrow_left</mat-icon></td>
+            <td id="mon" (click)="select('mon','10')" style="font-size:4vw;width: 12%;background-color: #ffff99;">Mon 10</td>
+            <td id="tue" (click)="select('tue', '11')" style="font-size:4vw;width: 12%;background-color: #ffff99;">Tue 11</td>
+            <td id="wed" (click)="select('wed','12')" style="font-size:4vw;width: 12%;">Wed 12</td>
+            <td id="thur" (click)="select('thur','13')" style="font-size:4vw;width: 12%;background-color: #ffff99;">Thur 13</td>
+            <td id="fri" (click)="select('fri','14')" style="font-size:4vw;width: 12%;background-color: #ffff99;">Fri 14</td>
+            <td id="sat" (click)="select('sat','15')" style="font-size:4vw;width: 12%;">Sat 15</td>
+            <td id="sun" (click)="select('sun','16')" style="font-size:4vw;width: 12%;">Sun 16</td>
+            <td id="right" (click)="select('right','right')" style="width: auto;"><mat-icon>keyboard_arrow_right</mat-icon></td>
+        </tr>
+    </table>
 </body>
 
 <ul *ngFor="let event of events">
@@ -23,6 +24,7 @@
                 <div style="font-size:3vw;">{{event.organizer}}</div>
                 <div style="font-size:5vw;">{{event.title}}</div>
                 <div style="font-size:3vw;">Date: {{event.day}}, {{event.month}} {{event.year}}</div>
+                <div style="font-size:3vw;">Time: {{event.time}}</div>
                 <div style="font-size:3vw;">Venue: {{event.venue}}</div>
             </mat-card-content>
         </mat-card>
