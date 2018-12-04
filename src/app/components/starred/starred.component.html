@@ -1,5 +1,6 @@
 <ul class="page">
   <li *ngFor="let message of messages">
+      <p *ngIf = "message.favourite">{{message.time_send|dateformatter}}
       <app-card [data]="message" *ngIf = "message.favourite"></app-card>
   </li>
 </ul>
