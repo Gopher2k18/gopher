@@ -11,6 +11,8 @@ export class BackendconnectorService {
   slackMessagesUrl = 'https://gopher-backend.herokuapp.com/events';
   confluenceUrl = 'https://gopher-backend.herokuapp.com/blogs';
 
+  token = 'faketoken';
+
   locations: Location = {
     helsinki: true,
     tampere: false,
@@ -86,6 +88,14 @@ export class BackendconnectorService {
 
   public setFilters(new_filters: Filter) {
     this.filters = new_filters;
+  }
+
+  public login(){
+    localStorage.setItem('token',this.token);
+  }
+
+  public logout(){
+    localStorage.removeItem('token');
   }
 
 

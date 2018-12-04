@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private backendconnectorService: BackendconnectorService) { }
 
   ngOnInit() {
   }
@@ -17,12 +17,21 @@ export class TopbarComponent implements OnInit {
   public goToFilter(){
     console.log("go to filter");
     this.router.navigate(['filter']);
-    
+
   }
 
   public goToLogin() {
     console.log("go to login");
+    this.backendconnectorService.logout();
     this.router.navigate(['login']);
+  }
+
+  public showLogout(): boolean{
+    if(localStorage.getItem('token') == null){
+      return false;
+    }else{
+      return true;
+    }
   }
 
 }
