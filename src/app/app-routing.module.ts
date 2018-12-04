@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {FeedComponent} from './components/feed/feed.component';
-import {FilterComponent} from './components/filter/filter.component';
-import {CalendarListComponent} from './components/calendar-list/calendar-list.component';
-import {LogInPageComponent} from './components/log-in-page/log-in-page.component';
-import {LocationComponent} from './components/location/location.component';
-import {ConfeedComponent} from './components/confeed/confeed.component';
+import { Routes, RouterModule } from '@angular/router';
+import { FeedComponent } from './components/feed/feed.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { CalendarListComponent } from './components/calendar-list/calendar-list.component';
+import { LogInPageComponent } from './components/log-in-page/log-in-page.component';
+import { LocationComponent } from './components/location/location.component';
+import { ConfeedComponent } from './components/confeed/confeed.component';
 import { StarredComponent } from './components/starred/starred.component';
 
 const routes: Routes = [
@@ -47,6 +47,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
