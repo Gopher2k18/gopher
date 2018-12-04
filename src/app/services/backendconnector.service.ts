@@ -98,5 +98,12 @@ export class BackendconnectorService {
     localStorage.removeItem('token');
   }
 
+  public showOnlyWhenLogged(): boolean{
+    if(localStorage.getItem('token') == null){
+      return false;
+    }else{
+      return true;
+    }
+
 
 }

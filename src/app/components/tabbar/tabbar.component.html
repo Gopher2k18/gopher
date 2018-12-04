@@ -1,7 +1,7 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
+<mat-toolbar  color="primary">
+    <mat-toolbar-row *ngIf = "backendconnectorService.showOnlyWhenLogged()">
 
-      <button mat-fab color=rgb(40,40,40) style="bottom: 2px;" (click) ="goToFeed()"
+      <button mat-fab color=rgb(40,40,40) style="bottom: 2px;" (click) ="goToSlackFeed()"
         [ngClass] ="{highlighted:page_shown[0],unhighlighted:!page_shown[0]}">
         <img class="image" color="primary" src="assets/icons/SlackIcon.png">
       </button>
