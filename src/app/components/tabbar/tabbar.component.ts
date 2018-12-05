@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import {BackendconnectorService} from '../../services/backendconnector.service';
 
 @Component({
   selector: 'app-tabbar',
@@ -9,12 +10,13 @@ import { filter } from 'rxjs/operators';
 })
 export class TabbarComponent implements OnInit {
 
-  current_url: any;
-  page_shown = [false,false,false,false];
+  current_url: any; //to keep track what component is currently routed by router
+  page_shown = [false,false,false,false];   //feed = 0, confeed = 1, calendar = 2, starred = 3
 
-  constructor(private route: ActivatedRoute,private router: Router) {
+  constructor(private route: ActivatedRoute,private router: Router, private backendconnectorService: BackendconnectorService) {
 
     //https://stackoverflow.com/questions/45320416/angular-router-url-returns-slash
+    //To get the component, what is currently shown:
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd)
     )
@@ -24,33 +26,47 @@ export class TabbarComponent implements OnInit {
     });
   }
 
-  //feed = 0, confeed = 1, calendar = 2, starred = 3
+
 
   ngOnInit() {
   }
 
-  goToFeed() {
-    console.log('go to feed');
+  /*
+    For html button to go to slack feed view
+  */
+  goToSlackFeed() {
     this.setPageInfo('/feed');
     this.router.navigate(['feed']);
   }
 
+  /*
+    For htom button to go to calendar view
+  */
   goToCalendar() {
     this.setPageInfo('/calendar');
     this.router.navigate(['calendar']);
   }
 
+  /*
+    For html button to go to Confluence feed view
+  */
   goToConfeed() {
     this.setPageInfo('/confeed');
     this.router.navigate(['confeed']);
   }
 
+  /*
+    For html button to go to starred posts view
+  */
   goToStar() {
     console.log('go to star');
     this.setPageInfo('/star');
     this.router.navigate(['star']);
   }
 
+  /*
+    For html to highlight the button, that would show the page one is currently viewing
+  */
   setPageInfo(route_name: string){
     console.log(route_name);
     for(let i = 0; i < this.page_shown.length;++i){

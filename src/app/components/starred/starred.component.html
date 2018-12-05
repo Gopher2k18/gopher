@@ -1,5 +1,6 @@
 <ul class="page">
   <li *ngFor="let card of cards">
+      <p *ngIf = "card.starred">{{card.time|dateformatter}}</p>
       <app-card [data]="card" *ngIf = "card.starred"></app-card>
   </li>
 </ul>
