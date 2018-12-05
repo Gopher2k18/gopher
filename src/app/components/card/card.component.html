@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [ngClass]="card.source">
   <mat-card-content>
     <span style="font-size:1.2em; font-weight: bold">{{card.header}}</span>
     <button mat-icon-button color="accent" class="star" (click)="star()">
