@@ -15,10 +15,23 @@
             <td id="right" (click)="select('right','right')" style="width: auto;"><mat-icon>keyboard_arrow_right</mat-icon></td>
         </tr>
     </table>
+    <p id="empty"></p>
+    <div><button mat-flat-button (click)="showWeek()">This week</button></div>
 </body>
 
 <ul *ngFor="let event of events">
-    <li *ngIf="event.day == selectedDay">
+    <li *ngIf="event.day == selectedDay && weekView === false">
+        <mat-card>
+            <mat-card-content>
+                <div style="font-size:3vw;">{{event.organizer}}</div>
+                <div style="font-size:5vw;">{{event.title}}</div>
+                <div style="font-size:3vw;">Date: {{event.day}}, {{event.month}} {{event.year}}</div>
+                <div style="font-size:3vw;">Time: {{event.time}}</div>
+                <div style="font-size:3vw;">Venue: {{event.venue}}</div>
+            </mat-card-content>
+        </mat-card>
+    </li>
+    <li *ngIf="weekView === true">
         <mat-card>
             <mat-card-content>
                 <div style="font-size:3vw;">{{event.organizer}}</div>
