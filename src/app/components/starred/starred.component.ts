@@ -1,3 +1,4 @@
+import { Card } from './../../models/card';
 import { Message } from './../../models/message';
 import { BackendconnectorService } from './../../services/backendconnector.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class StarredComponent implements OnInit {
 
 
-  messages: Message[] = [];
+  messages: Card[] = [];
   filteredmessages: Message[] = [];
 
   constructor(private backendconnectorService: BackendconnectorService,
@@ -25,12 +26,6 @@ export class StarredComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.backendconnectorService.getSlackMessages().subscribe({
-      next: (x: Message) => this.messages.push(x),
-      complete: () => {
-        this.messages.reverse();
-      }
-
-    });
+    this.messages = this.backendconnectorService.fetchStars();
   }
 }

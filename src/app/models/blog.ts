@@ -34,6 +34,6 @@ export class Blog implements Cardable {
 
     toCard(): Card {
       return new Card(this.user, this.name, this.link,
-        this.favourite, this.tags.toString(), this.ts);
+        this.favourite, this.tags.toString(), this.ts, 'conf');
     }
   }

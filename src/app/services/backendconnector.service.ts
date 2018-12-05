@@ -31,9 +31,9 @@ export class BackendconnectorService {
     club: true
   };
 
-  slackMessages: Card[] = null;
+  slackMessages: Card[] = [];
   slackFetched = false;
-  confMessages: Card[] = null;
+  confMessages: Card[] = [];
   confFetched = false;
 
   constructor(private http: HttpClient) { }
@@ -87,6 +87,27 @@ export class BackendconnectorService {
       });
       return obs;
     }
+  }
+
+  public star(card: Card) {
+    if (card.source === 'slack') {
+      const ind = this.slackMessages.indexOf(card);
+      this.slackMessages[ind].flip();
+    } else {
+      const ind = this.confMessages.indexOf(card);
+      this.confMessages[ind].flip();
+    }
+  }
+
+  public fetchStars(): Card[] {
+    const all = this.confMessages.concat(this.slackMessages);
+    const filtered = all.filter((value, index, array) => {
+      return value.starred;
+    });
+    return filtered.sort((a, b) => {
+      return (a.time < b.time) ? 1 : -1;
+    });
+
   }
 
   public flip(ts) {
