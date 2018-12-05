@@ -1,3 +1,4 @@
+import { Card } from './../models/card';
 import { Message } from './../models/message';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -30,6 +31,8 @@ export class BackendconnectorService {
   };
 
   slackMessages: Message[] = null;
+
+  starred = new Set();
 
   constructor(private http: HttpClient) { }
 
@@ -74,6 +77,29 @@ export class BackendconnectorService {
     });
   }
 
+  public star(card: Card) {
+    if (this.starred.has(card)) {
+      this.starred.delete(card);
+    } else {
+      this.starred.add(card);
+    }
+    console.log(this.starred);
+  }
+
+  public getStarred(): Card[] {
+    const stard = [];
+    this.starred.forEach((val, val2, set) => {
+      stard.push(val);
+    });
+    return stard.sort((a: Card, b: Card) => {
+      if (a.time < b.time) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+  }
+
   public getLocations() {
     return this.locations;
   }
@@ -90,11 +116,11 @@ export class BackendconnectorService {
     this.filters = new_filters;
   }
 
-  public login(){
-    localStorage.setItem('token',this.token);
+  public login() {
+    localStorage.setItem('token', this.token);
   }
 
-  public logout(){
+  public logout() {
     localStorage.removeItem('token');
   }
 
