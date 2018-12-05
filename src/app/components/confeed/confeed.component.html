@@ -1,6 +1,6 @@
 <ul class="page">
     <li *ngFor="let blog of blogs">
-          <p *ngIf="show_date(blog.ts)">{{blog.ts|dateformatter}}</p>
+          <p *ngIf="show_date(blog.time)">{{blog.time|dateformatter}}</p>
         <app-card [data]="blog"></app-card>
     </li>
 </ul>

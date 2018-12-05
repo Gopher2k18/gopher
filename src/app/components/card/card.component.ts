@@ -24,8 +24,6 @@ export class CardComponent implements OnInit {
   }
 
   star() {
-    this.card.starred = !this.card.starred;
-    this.backendconnectorService.flip(this.card.time);
     this.backendconnectorService.star(this.card);
   }
 

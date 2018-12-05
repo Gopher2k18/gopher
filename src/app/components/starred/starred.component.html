@@ -1,6 +1,13 @@
 <ul class="page">
-  <li *ngFor="let card of cards">
-      <p *ngIf = "card.starred">{{card.time|dateformatter}}</p>
-      <app-card [data]="card" *ngIf = "card.starred"></app-card>
+  <li *ngIf = "empty">
+    <mat-card>
+      <p style="text-align:center">You have no starred cards</p>
+    </mat-card>
+  </li>
+  <li *ngFor="let message of messages">
+    <ng-container *ngIf = "message.starred">
+      <p>{{message.time|dateformatter}}</p>
+      <app-card [data]="message" ></app-card>
+    </ng-container>
   </li>
 </ul>

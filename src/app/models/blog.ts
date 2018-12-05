@@ -5,6 +5,7 @@ export class Blog implements Cardable {
     _id: string;
     name: string;
     user: string;
+    content: string;
     tags: string[];
     ts: string;
     link: string;
@@ -18,6 +19,7 @@ export class Blog implements Cardable {
       ts: string;
       link: string;
       favourite: boolean;
+      content: string;
     }) {
       this._id = obj._id;
       this.name = obj.name;
@@ -26,6 +28,7 @@ export class Blog implements Cardable {
       this.ts = obj.ts;
       this.link = obj.link;
       this.favourite = obj.favourite;
+      this.content = obj.content;
     }
 
     flip() {
@@ -33,7 +36,7 @@ export class Blog implements Cardable {
     }
 
     toCard(): Card {
-      return new Card(this.user, this.name, this.link,
-        this.favourite, this.tags.toString(), this.ts);
+      return new Card(this.name, this.content, this.link,
+        this.favourite, `Tags: ${this.tags.toString()}`, this.ts, 'conf');
     }
   }

@@ -1,5 +1,4 @@
 import { Card } from './../../models/card';
-import { Message } from './../../models/message';
 import { BackendconnectorService } from './../../services/backendconnector.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,12 +11,14 @@ import { Router } from '@angular/router';
 export class StarredComponent implements OnInit {
 
 
-  cards: Card[] = [];
+  messages: Card[] = [];
+  empty: Boolean = false;
 
   constructor(private backendconnectorService: BackendconnectorService,
     private router: Router) { }
 
   ngOnInit() {
-    this.cards = this.backendconnectorService.getStarred();
+    this.messages = this.backendconnectorService.fetchStars();
+    this.empty = this.messages.length ? false : true;
   }
 }
