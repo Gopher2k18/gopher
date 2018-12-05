@@ -16,11 +16,18 @@ export class CalendarListComponent implements OnInit {
 
   selectedDay = '';
   selectedId = 'empty';
+  weekView = true;
 
   constructor(private calendarlistService: CalendarListService) {}
 
   ngOnInit() {
     this.getEvents();
+  }
+
+  showWeek(): void {
+    this.weekView = true;
+    console.log(this.weekView);
+    document.getElementById(this.selectedId).style.fontWeight = "normal";
   }
 
   select(id:string,d: string) {
@@ -30,6 +37,8 @@ export class CalendarListComponent implements OnInit {
     document.getElementById(id).style.fontWeight = "bold";
     document.getElementById(this.selectedId).style.fontWeight = "normal";
     this.selectedId = id;
+    this.weekView = false;
+    console.log(this.weekView);
   }
 
   getEvents(): void {
