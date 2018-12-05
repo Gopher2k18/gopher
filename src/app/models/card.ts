@@ -12,3 +12,4 @@ export class Card implements Cardable {
         this.starred = !this.starred;
     }
 }
+

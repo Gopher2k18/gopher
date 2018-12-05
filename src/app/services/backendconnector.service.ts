@@ -36,6 +36,8 @@ export class BackendconnectorService {
   confMessages: Card[] = [];
   confFetched = false;
 
+  starred = new Set();
+
   constructor(private http: HttpClient) { }
 
   public getSlackMessages() {
@@ -119,6 +121,20 @@ export class BackendconnectorService {
         return true;
       } else {
         return false;
+      }
+    });
+  }
+
+  public getStarred(): Card[] {
+    const stard = [];
+    this.starred.forEach((val, val2, set) => {
+      stard.push(val);
+    });
+    return stard.sort((a: Card, b: Card) => {
+      if (a.time < b.time) {
+        return 1;
+      } else {
+        return -1;
       }
     });
   }
