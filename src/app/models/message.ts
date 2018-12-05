@@ -37,7 +37,7 @@ export class Message implements Cardable {
   }
 
   toCard(): Card {
-    return new Card(this.channel, this.message, '',
-      this.favourite, this.tags.toString(), this.time_send, 'slack');
+    return new Card(this.channel, `${this.user}: ${this.message}`, '',
+      this.favourite, `Keyword: ${this.tags.toString()}`, this.time_send, 'slack');
   }
 }

@@ -1,6 +1,5 @@
 import { Card } from './../../models/card';
 import { Component, OnInit } from '@angular/core';
-import { Message } from '../../models/message';
 import { DatePipe } from '@angular/common';
 import { BackendconnectorService } from '../../services/backendconnector.service';
 import { Router } from '@angular/router';
@@ -13,22 +12,10 @@ import { Router } from '@angular/router';
 export class FeedComponent implements OnInit {
 
   messages: Card[] = [];
-  filteredmessages: Message[] = [];
   date_map = new Map<string, boolean>();
-  selectedMessage: Message;
-
 
   constructor(private backendconnectorService: BackendconnectorService,
     private router: Router, private datePipe: DatePipe) { }
-
-
-
-
-
-  onSelect(message: Message): void {
-    this.selectedMessage = message;
-    this.selectedMessage.favourite = !this.selectedMessage.favourite;
-  }
 
   ngOnInit() {
     this.backendconnectorService.getSlackMessages().subscribe({
@@ -65,7 +52,5 @@ export class FeedComponent implements OnInit {
       }
 
     }
-
   }
-
 }
