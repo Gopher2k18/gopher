@@ -1,3 +1,5 @@
+import { Blog } from './../models/blog';
+import { Card } from './../models/card';
 import { Message } from './../models/message';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -29,30 +31,56 @@ export class BackendconnectorService {
     club: true
   };
 
-  slackMessages: Message[] = null;
+  slackMessages: Card[] = null;
+  slackFetched = false;
+  confMessages: Card[] = null;
+  confFetched = false;
 
   constructor(private http: HttpClient) { }
 
-  public getConBlogs() {
-    return this.http.get(this.confluenceUrl);
-  }
-
   public getSlackMessages() {
-    if (!(this.slackMessages === null)) {
+    if (this.slackFetched) {
       console.log('OLD ONE');
       return from(this.slackMessages);
     } else {
       console.log(this.slackMessages);
       const obs = new Observable((observer) => {
-        const msgArray: Message[] = [];
+        const msgArray: Card[] = [];
         this.http.get(this.slackMessagesUrl).subscribe((response: []) => {
           response.forEach(element => {
             const msg = new Message(element);
-            console.log(element);
+            const x = msg.toCard();
+            console.log(x);
+            msgArray.push(x);
+            observer.next(x);
+          });
+          this.slackMessages = msgArray;
+          observer.complete();
+          this.slackFetched = true;
+          return { unsubscribe() { } };
+        });
+      });
+      return obs;
+    }
+  }
+
+  public getConfMessages() {
+    if (this.confFetched) {
+      console.log('OLD ONE conf');
+      return from(this.confMessages);
+    } else {
+      console.log(this.confMessages);
+      const obs = new Observable((observer) => {
+        const msgArray: Card[] = [];
+        this.http.get(this.confluenceUrl).subscribe((response: []) => {
+          response.forEach(element => {
+            const msg = new Blog(element).toCard();
+            console.log(msg);
             msgArray.push(msg);
             observer.next(msg);
           });
-          this.slackMessages = msgArray;
+          this.confMessages = msgArray;
+          this.confFetched = true;
           observer.complete();
           return { unsubscribe() { } };
         });
@@ -63,8 +91,8 @@ export class BackendconnectorService {
 
   public flip(ts) {
     this.slackMessages.find((msg, idx, obj) => {
-      if (msg.time_send === ts) {
-        console.log(`Found it ${idx}, ${msg.favourite}`);
+      if (msg.time === ts) {
+        console.log(`Found it ${idx}, ${msg.starred}`);
         msg.flip();
         obj[idx] = msg;
         return true;
@@ -90,18 +118,18 @@ export class BackendconnectorService {
     this.filters = new_filters;
   }
 
-  public login(){
-    localStorage.setItem('token',this.token);
+  public login() {
+    localStorage.setItem('token', this.token);
   }
 
-  public logout(){
+  public logout() {
     localStorage.removeItem('token');
   }
 
-  public showOnlyWhenLogged(): boolean{
-    if(localStorage.getItem('token') == null){
+  public showOnlyWhenLogged(): boolean {
+    if (localStorage.getItem('token') == null) {
       return false;
-    }else{
+    } else {
       return true;
     }
 
