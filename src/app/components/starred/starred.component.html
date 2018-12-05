@@ -1,4 +1,9 @@
 <ul class="page">
+  <li *ngIf = "empty">
+    <mat-card>
+      <p style="text-align:center">You have no starred cards</p>
+    </mat-card>
+  </li>
   <li *ngFor="let message of messages">
     <ng-container *ngIf = "message.starred">
       <p>{{message.time|dateformatter}}</p>
