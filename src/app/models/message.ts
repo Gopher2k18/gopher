@@ -11,6 +11,7 @@ export class Message implements Cardable {
   tags: string[];
   time_send: string;
   favourite: boolean;
+  link: string;
 
   constructor(obj: {
     _id: string,
@@ -20,7 +21,8 @@ export class Message implements Cardable {
     location: string,
     tags: string[],
     time_send: string,
-    favourite: boolean
+    favourite: boolean,
+    link: string
   }) {
     this._id = obj._id;
     this.user = obj.user;
@@ -30,6 +32,7 @@ export class Message implements Cardable {
     this.tags = obj.tags;
     this.time_send = obj.time_send;
     this.favourite = false;
+    this.link = obj.link;
   }
 
   flip() {
@@ -37,7 +40,7 @@ export class Message implements Cardable {
   }
 
   toCard(): Card {
-    return new Card(this.channel, `${this.user}: ${this.message}`, '',
+    return new Card(this.channel, `${this.user}: ${this.message}`, this.link,
       this.favourite, `Keyword: ${this.tags.toString()}`, this.time_send, 'slack');
   }
 }
