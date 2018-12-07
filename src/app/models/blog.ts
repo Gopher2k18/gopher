@@ -24,7 +24,9 @@ export class Blog implements Cardable {
     this._id = obj._id;
     this.name = obj.name;
     this.user = obj.user;
-    this.tags = obj.tags;
+    this.tags = obj.tags.map((val, ind, arr) => {
+      return val.toLocaleLowerCase();
+    });
     this.ts = obj.ts;
     this.link = obj.link;
     this.favourite = obj.favourite;
@@ -37,6 +39,6 @@ export class Blog implements Cardable {
 
   toCard(): Card {
     return new Card(this.name, this.content, this.link,
-      this.favourite, `Tags: ${this.tags.toString()}`, this.ts, 'conf');
+      this.favourite, `Tags: ${this.tags.toString()}`, this.ts, 'conf', this.tags);
   }
 }

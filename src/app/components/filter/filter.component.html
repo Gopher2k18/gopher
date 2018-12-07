@@ -10,16 +10,17 @@
 </div>
 <div>
   <div *ngIf="showingSlack">
-    <p>Slack is shown</p>
+    <div class="flexwrap">
+      <button mat-raised-button class="big_button" (click)="resetFilter(true)">Reset filters</button>
+      <button mat-raised-button *ngFor="let button of slackButtons" [ngClass]="getState(button, true)"
+       class="smaller_buttons" (click)="flip(button, true)">{{button}}</button>
+    </div>
   </div>
   <div *ngIf="!showingSlack">
-    <p>Confluence is shown</p>
-  </div>
-  <div class="flexwrap">
-    <button mat-raised-button class="smaller_buttons">Default filters</button>
-    <button mat-raised-button class="smaller_buttons">Clear filters</button>
-    <button mat-raised-button *ngFor="let button of buttons" [ngClass]="getState(button)"
-     class="smaller_buttons" (click)="flip(button)">{{button}}</button>
-
+      <div class="flexwrap">
+          <button mat-raised-button class="big_button" (click)="resetFilter(false)">Reset filters</button>
+          <button mat-raised-button *ngFor="let button of confButtons" [ngClass]="getState(button, false)"
+           class="smaller_buttons" (click)="flip(button, false)">{{button}}</button>
+        </div>
   </div>
 </div>

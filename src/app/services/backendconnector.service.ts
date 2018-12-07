@@ -36,7 +36,7 @@ export class BackendconnectorService {
   slackFilter: Map<string, boolean> = new Map();
   confMessages: Card[] = [];
   confFetched = false;
-  confFilter = new Map();
+  confFilter: Map<string, boolean> = new Map();
 
   starred = new Set();
 
@@ -83,14 +83,23 @@ export class BackendconnectorService {
     return this.slackFilter;
   }
 
-  slackFilterChannel(channel: string) {
-    
-  }
-
   public getConfMessages() {
     if (this.confFetched) {
-      console.log('OLD ONE conf');
-      return from(this.confMessages);
+      console.log(this.confFilter);
+      const banned = [];
+      this.confFilter.forEach((val, key, map) => {
+        if (!val) {
+          banned.push(key);
+        }
+      });
+      console.log(banned);
+      const filtered = this.confMessages.filter((val, ind, arr) => {
+        return val.searchable.every((tag, index, arra) => {
+          return !banned.includes(tag);
+        });
+      });
+      return from(filtered);
+
     } else {
       console.log(this.confMessages);
       const obs = new Observable((observer) => {
@@ -99,6 +108,9 @@ export class BackendconnectorService {
           response.forEach(element => {
             const msg = new Blog(element).toCard();
             console.log(msg);
+            msg.searchable.forEach((val, ind, arr) => {
+              this.confFilter.set(val, true);
+            });
             msgArray.push(msg);
             observer.next(msg);
           });
@@ -110,6 +122,10 @@ export class BackendconnectorService {
       });
       return obs;
     }
+  }
+
+  getConfFilter(): Map<string, boolean> {
+    return this.confFilter;
   }
 
   public star(card: Card) {
