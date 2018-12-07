@@ -23,6 +23,8 @@ export class LogInPageComponent implements OnInit {
     if(localStorage.getItem('token') !=null){
       this.router.navigate(['feed']);
     }
+    this.backendconnectorService.getConfMessages().subscribe();
+    this.backendconnectorService.getSlackMessages().subscribe();
   }
 
 }

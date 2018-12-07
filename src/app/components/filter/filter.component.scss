@@ -33,5 +33,23 @@ main{
   margin:0;
   display: flex;
   flex-wrap: wrap;
+  align-content:space-around;
   justify-content: center;
+}
+
+.off{
+  background-color: #DDDDDD;
+}
+
+.on{
+  background-color: #AADDAA;
+}
+
+.smaller_buttons{
+  width: 40%;
+  margin: 0.5rem;
+}
+
+.big_button{
+  width: 85%;
 }
