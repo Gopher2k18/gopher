@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BackendconnectorService} from '../../services/backendconnector.service';
-import {Router} from '@angular/router';
+import { BackendconnectorService } from '../../services/backendconnector.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -9,12 +9,12 @@ import {Router} from '@angular/router';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(private router: Router,private backendconnectorService: BackendconnectorService) { }
+  constructor(private router: Router, public backendconnectorService: BackendconnectorService) { }
 
   ngOnInit() {
   }
 
-  public goToFilter(){
+  public goToFilter() {
     this.router.navigate(['filter']);
 
   }
