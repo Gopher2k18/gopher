@@ -12,33 +12,21 @@ import {BackendconnectorService} from '../../services/backendconnector.service';
 
 export class FilterComponent implements OnInit {
 
-  locations: Location;
-  filters: Filter;
 
+  showingSlack = false;
 
   constructor(private router: Router, private backendconnectorService: BackendconnectorService) { }
 
   ngOnInit() {
-    this.locations = this.backendconnectorService.getLocations();
-    this.filters = this.backendconnectorService.getFilters();
-  
+
   }
 
-  public goToLocations(){
-    console.log('going to locations');
-    this.router.navigate(['location']);
+  showSlack(){
+    this.showingSlack=true;
   }
 
-  public changeFilterInfo(filtered: string){
-    if(filtered == 'meeting'){
-      this.filters.meeting = !this.filters.meeting;
-    }else if(filtered == 'event'){
-      this.filters.event = !this.filters.event;
-    }else if(filtered == 'glt'){
-      this.filters.glt = !this.filters.glt;
-    }else if(filtered == 'club'){
-      this.filters.club = !this.filters.club;
-    }
+  showConfluence(){
+    this.showingSlack=false;
   }
 
 }

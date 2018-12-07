@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(private router: Router, private backendconnectorService: BackendconnectorService) { }
+  constructor(private router: Router,private backendconnectorService: BackendconnectorService) { }
 
   ngOnInit() {
   }

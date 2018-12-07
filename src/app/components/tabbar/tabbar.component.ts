@@ -13,7 +13,7 @@ export class TabbarComponent implements OnInit {
   current_url: any; //to keep track what component is currently routed by router
   page_shown = [false,false,false,false];   //feed = 0, confeed = 1, calendar = 2, starred = 3
 
-  constructor(private route: ActivatedRoute,private router: Router, private backendconnectorService: BackendconnectorService) {
+  constructor(private route: ActivatedRoute,private router: Router,private backendconnectorService: BackendconnectorService) {
 
     //https://stackoverflow.com/questions/45320416/angular-router-url-returns-slash
     //To get the component, what is currently shown:
