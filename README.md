@@ -1,14 +1,25 @@
 # Gopher
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+This project was our school project and it gather information from two different sources which are slack and confluence and shouw it in one place.
 
-## Development server
+## Features
+* Log in system
+* Feed for new slack messages
+* Feed for new confluence posts
+* Week calendar for showing events
+* Filter content
+* Starred page
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting started
+To get started with gopher you need to have npm package manager, slack, confluence(we use fakedata), gopher-bot, gopher-backend and mongoDB
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
+* [npm](https://www.npmjs.com/get-npm)
+* [slack](https://slack.com/)
+* [confluence](https://www.atlassian.com/software/confluence)
+* [gopher-bot](https://github.com/Gopher2k18/gopher-bot)
+* [gopher-backend](https://github.com/Gopher2k18/gopher-backend)
+* [MongoDB](https://www.mongodb.com/)
 
 ## Build
 
