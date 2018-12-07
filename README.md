@@ -11,7 +11,7 @@ This project was our school project and it gather information from two different
 * Starred page
 
 ## Getting started
-To get started with gopher you need to have npm package manager, slack, confluence(we use fakedata), gopher-bot, gopher-backend and mongoDB
+To get started with gopher you need to have npm package manager, slack, confluence(we use fakedata), gopher-bot, gopher-backend and mongoDB.
 
 ## Prerequisites
 * [npm](https://www.npmjs.com/get-npm)
@@ -21,18 +21,21 @@ To get started with gopher you need to have npm package manager, slack, confluen
 * [gopher-backend](https://github.com/Gopher2k18/gopher-backend)
 * [MongoDB](https://www.mongodb.com/)
 
-## Build
+## Build and run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Clone this project \
+`git clone https://github.com/Gopher2k18/gopher`
 
-## Running unit tests
+2. Install dependencies \
+`nmp install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Run application \
+ `ng serve --open`
 
-## Running end-to-end tests
+## Built with
+ * Angular
+ * Git for version control
+ * Project managing tool [git project](https://github.com/Gopher2k18/gopher/projects/1)
+ 
+ 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
