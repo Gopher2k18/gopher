@@ -18,6 +18,7 @@ export class FilterComponent implements OnInit {
   slackFilters: Map<string, boolean>;
   buttons = [];
 
+  showingSlack = false;
 
   constructor(private router: Router, private backendconnectorService: BackendconnectorService) { }
 
@@ -45,7 +46,7 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  public flip(button: string){
+  public flip(button: string) {
     const x = this.slackFilters.get(button);
     this.slackFilters.set(button, !x);
   }
@@ -53,6 +54,15 @@ export class FilterComponent implements OnInit {
   public goToLocations() {
     console.log('going to locations');
     this.router.navigate(['location']);
+
+  }
+
+  showSlack() {
+    this.showingSlack = true;
+  }
+
+  showConfluence() {
+    this.showingSlack = false;
   }
 
 }

@@ -1,35 +1,36 @@
-.smaller_buttons{
-
-  width:39%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding: 10px;
-  margin-top:20px;
+.image {
+  max-height: 30px;
+  max-width: 30px;
 }
 
-.wider_buttons{
-  width: 88%;
-  margin-left: 4%;
-  padding: 10px;
-  margin-top:20px;
+:host{
+  width:100%;
 }
 
-.checkbox{
-  margin-left: 5%;
-  width:36%;
+.unchosen {
+  border-color: #888888;
 }
 
-
-
-#searchbox{
-  margin-left: 5%;
-  padding: 10px;
-  margin: 10px;
+.chosen {
+  border-color: #00FF00;
 }
 
+main{
+  width: 100%;
+}
 
+.small{
+  width:40%;
+  margin:2%;
+  border-style: solid;
+  border-width: 5px;
+  background-color: white;
+
+}
 
 .flexwrap{
+  width:100%;
+  margin:0;
   display: flex;
   flex-wrap: wrap;
   align-content:space-around;

@@ -1,8 +1,20 @@
-<main>
-  <input type="text" placeholder="Search" class="box" id="searchbox">
-  <button mat-raised-button>
-    <mat-icon>search</mat-icon>
-  </button><br>
+
+<div class="flexwrap">
+  <button class="small" (click)="showSlack()" [ngClass]="{chosen:showingSlack,unchosen:!showingSlack}">
+    <img class="image" color="primary" src="assets/icons/SlackIcon.png">
+  </button>
+
+  <button class="small" (click)="showConfluence()" [ngClass]="{chosen:!showingSlack,unchosen:showingSlack}">
+    <img class="image" color="primary" src="assets/icons/confluence.png">
+  </button>
+</div>
+<div>
+  <div *ngIf="showingSlack">
+    <p>Slack is shown</p>
+  </div>
+  <div *ngIf="!showingSlack">
+    <p>Confluence is shown</p>
+  </div>
   <div class="flexwrap">
     <button mat-raised-button class="smaller_buttons">Default filters</button>
     <button mat-raised-button class="smaller_buttons">Clear filters</button>
@@ -10,4 +22,4 @@
      class="smaller_buttons" (click)="flip(button)">{{button}}</button>
 
   </div>
-</main>
+</div>
