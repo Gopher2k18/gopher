@@ -1,19 +1,17 @@
-<main>
-  <input type="text" placeholder="Search" class="box" id="searchbox">
-  <button mat-raised-button>
-    <mat-icon>search</mat-icon>
-  </button><br>
-  <div class="flexwrap">
-    <button mat-raised-button class="smaller_buttons">Default filters</button>
-    <button mat-raised-button class="smaller_buttons">Clear filters</button>
-    <button mat-raised-button (click)="goToLocations()" class="wider_buttons">Location</button>
-    <button mat-raised-button (click)="changeFilterInfo('meeting')" class="smaller_buttons"
-    [ngClass] ="{chosen:filters.meeting,unchosen:!filters.meeting}">Meeting</button>
-    <button mat-raised-button (click)="changeFilterInfo('event')" class="smaller_buttons"
-    [ngClass] ="{chosen:filters.event,unchosen:!filters.event}">Event</button>
-    <button mat-raised-button (click)="changeFilterInfo('club')" class="smaller_buttons"
-    [ngClass] ="{chosen:filters.club,unchosen:!filters.club}">Club</button>
-    <button mat-raised-button (click)="changeFilterInfo('glt')" class="smaller_buttons"
-    [ngClass] = {chosen:filters.glt,unchosen:!filters.glt}>Official stuffs</button>
+<div class="flexwrap">
+  <button class="small" (click)="showSlack()" [ngClass]="{chosen:showingSlack,unchosen:!showingSlack}">
+    <img class="image" color="primary" src="assets/icons/SlackIcon.png">
+  </button>
+
+  <button class="small" (click)="showConfluence()" [ngClass]="{chosen:!showingSlack,unchosen:showingSlack}">
+    <img class="image" color="primary" src="assets/icons/confluence.png">
+  </button>
+</div>
+<div>
+  <div *ngIf="showingSlack">
+    <p>Slack is shown</p>
   </div>
-</main>
+  <div *ngIf="!showingSlack">
+    <p>Confluence is shown</p>
+  </div>
+</div>
