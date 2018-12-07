@@ -33,8 +33,10 @@ export class BackendconnectorService {
 
   slackMessages: Card[] = [];
   slackFetched = false;
+  slackFilter: Map<string, boolean> = new Map();
   confMessages: Card[] = [];
   confFetched = false;
+  confFilter = new Map();
 
   starred = new Set();
 
@@ -42,8 +44,18 @@ export class BackendconnectorService {
 
   public getSlackMessages() {
     if (this.slackFetched) {
-      console.log('OLD ONE');
-      return from(this.slackMessages);
+      console.log(this.slackFilter);
+      const banned = [];
+      this.slackFilter.forEach((val, key, map) => {
+        if (!val) {
+          banned.push(key);
+        }
+      });
+      console.log(banned);
+      const filtered = this.slackMessages.filter((val, ind, arr) => {
+        return !banned.includes(val.header);
+      });
+      return from(filtered);
     } else {
       console.log(this.slackMessages);
       const obs = new Observable((observer) => {
@@ -52,18 +64,27 @@ export class BackendconnectorService {
           response.forEach(element => {
             const msg = new Message(element);
             const x = msg.toCard();
-            console.log(x);
+            this.slackFilter.set(x.header, true);
             msgArray.push(x);
             observer.next(x);
           });
           this.slackMessages = msgArray;
           observer.complete();
+          console.log(this.slackFilter);
           this.slackFetched = true;
           return { unsubscribe() { } };
         });
       });
       return obs;
     }
+  }
+
+  getSlackFilter(): Map<string, boolean> {
+    return this.slackFilter;
+  }
+
+  slackFilterChannel(channel: string) {
+    
   }
 
   public getConfMessages() {
