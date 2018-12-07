@@ -37,5 +37,7 @@ To get started with gopher you need to have npm package manager, slack, confluen
  * Git for version control
  * Project managing tool [git project](https://github.com/Gopher2k18/gopher/projects/1)
  
+ ## Screenshots
+ ![Screenshot](gopher-image.png)
  
 
