@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import {BackendconnectorService} from '../../services/backendconnector.service';
+import { BackendconnectorService } from '../../services/backendconnector.service';
 
 @Component({
   selector: 'app-tabbar',
@@ -11,19 +11,19 @@ import {BackendconnectorService} from '../../services/backendconnector.service';
 export class TabbarComponent implements OnInit {
 
   current_url: any; //to keep track what component is currently routed by router
-  page_shown = [false,false,false,false];   //feed = 0, confeed = 1, calendar = 2, starred = 3
+  page_shown = [false, false, false, false];   //feed = 0, confeed = 1, calendar = 2, starred = 3
 
-  constructor(private route: ActivatedRoute,private router: Router,private backendconnectorService: BackendconnectorService) {
+  constructor(private route: ActivatedRoute, private router: Router, public backendconnectorService: BackendconnectorService) {
 
     //https://stackoverflow.com/questions/45320416/angular-router-url-returns-slash
     //To get the component, what is currently shown:
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd)
     )
-    .subscribe( (navEnd:NavigationEnd) => {
-      this.current_url = navEnd.urlAfterRedirects;
-      this.setPageInfo(this.current_url);
-    });
+      .subscribe((navEnd: NavigationEnd) => {
+        this.current_url = navEnd.urlAfterRedirects;
+        this.setPageInfo(this.current_url);
+      });
   }
 
 
@@ -67,18 +67,18 @@ export class TabbarComponent implements OnInit {
   /*
     For html to highlight the button, that would show the page one is currently viewing
   */
-  setPageInfo(route_name: string){
+  setPageInfo(route_name: string) {
     console.log(route_name);
-    for(let i = 0; i < this.page_shown.length;++i){
+    for (let i = 0; i < this.page_shown.length; ++i) {
       this.page_shown[i] = false;
     }
-    if(route_name == '/feed'){
+    if (route_name == '/feed') {
       this.page_shown[0] = true;
-    }else if(route_name == '/confeed'){
+    } else if (route_name == '/confeed') {
       this.page_shown[1] = true;
-    }else if(route_name == '/calendar'){
+    } else if (route_name == '/calendar') {
       this.page_shown[2] = true;
-    }else if(route_name == '/star'){
+    } else if (route_name == '/star') {
       this.page_shown[3] = true;
     }
 
