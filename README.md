@@ -1,6 +1,6 @@
 # Gopher
 
-This project was our school project and it gather information from two different sources which are slack and confluence and shouw it in one place.
+This project was our school project and it gather information from two different sources which are slack and confluence and show it in one place.
 
 ## Features
 * Log in system
@@ -39,5 +39,9 @@ To get started with gopher you need to have npm package manager, slack, confluen
  
  ## Screenshots
  ![Screenshot](gopher-image.png)
- 
-
+ 1. Log in page
+ 2. Slack feed
+ 3. Confluence feed
+ 4. Event calendar
+ 5. Starred page
+ 6. Filtering page
