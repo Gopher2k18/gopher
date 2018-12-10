@@ -27,7 +27,7 @@ To get started with gopher you need to have npm package manager, slack, confluen
 `git clone https://github.com/Gopher2k18/gopher`
 
 2. Install dependencies \
-`nmp install`
+`npm install`
 
 3. Run application \
  `ng serve --open`
