@@ -13,6 +13,7 @@ export class StarredComponent implements OnInit {
 
   messages: Card[] = [];
   empty: Boolean = false;
+  date_map = new Map<string, boolean>();
 
   constructor(private backendconnectorService: BackendconnectorService,
     private router: Router) { }
@@ -20,5 +21,9 @@ export class StarredComponent implements OnInit {
   ngOnInit() {
     this.messages = this.backendconnectorService.fetchStars();
     this.empty = this.messages.length ? false : true;
+
+  }
+
+
   }
 }

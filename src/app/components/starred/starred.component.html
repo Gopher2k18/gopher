@@ -6,7 +6,7 @@
   </li>
   <li *ngFor="let message of messages">
     <ng-container *ngIf = "message.starred">
-      <p>{{message.time|dateformatter}}</p>
+      <p *ngIf = "show_date(message.time)">{{message.time|dateformatter}}</p>
       <app-card [data]="message" ></app-card>
     </ng-container>
   </li>
