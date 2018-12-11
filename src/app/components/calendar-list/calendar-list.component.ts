@@ -47,8 +47,10 @@ export class CalendarListComponent implements OnInit {
     }
   }
 
+  //switching week with the left and right arrow
   switchWeek(id: string) {
 
+    //switch to pervious week
     if(id === 'left'){
       if(this.selectedWeek == this.week2) {
         this.selectedWeek = this.week1;
@@ -57,6 +59,7 @@ export class CalendarListComponent implements OnInit {
       }
     }
     
+    //switch to next week
     if(id === 'right'){
       if(this.selectedWeek == this.week2) {
         this.selectedWeek = this.week3;
@@ -65,6 +68,7 @@ export class CalendarListComponent implements OnInit {
       }
     }
 
+    //clear the background color to whitesmoke
     for (var i =0; i<7; i++) {
 
       var d = ''+i;
@@ -72,6 +76,7 @@ export class CalendarListComponent implements OnInit {
 
     }
 
+    //when there is/are event(s), backgroud color turn to yellow
     for(var i = 0; i<this.events.length; i++) {
 
       for(var j = 0; j < 7; j++) {
@@ -88,6 +93,7 @@ export class CalendarListComponent implements OnInit {
 
   }
 
+  //(not used) when seleted, the font will be bold
   select(id:string,d: string) {
     console.log('current id: '+id);
     console.log('sselected id: '+ this.selectedId);
