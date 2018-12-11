@@ -24,6 +24,4 @@ export class StarredComponent implements OnInit {
 
   }
 
-
-  }
 }

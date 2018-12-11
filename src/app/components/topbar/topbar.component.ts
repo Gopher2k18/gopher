@@ -14,11 +14,17 @@ export class TopbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  /*
+    To show filter page
+  */
   public goToFilter() {
     this.router.navigate(['filter']);
 
   }
 
+  /*
+    For logout button
+  */
   public goToLogin() {
     this.backendconnectorService.logout();
     this.router.navigate(['login']);
