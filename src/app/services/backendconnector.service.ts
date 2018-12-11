@@ -3,7 +3,6 @@ import { Card } from './../models/card';
 import { Message } from './../models/message';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Location } from '../models/location';
 import { Filter } from '../models/filter';
 import { from, Observable } from 'rxjs';
 
@@ -14,22 +13,6 @@ export class BackendconnectorService {
   confluenceUrl = 'https://gopher-backend.herokuapp.com/blogs';
 
   token = 'faketoken';
-
-  locations: Location = {
-    helsinki: true,
-    tampere: false,
-    jyvaskyla: false,
-    madrid: false,
-    london: false,
-    new_york: false
-  };
-
-  filters: Filter = {
-    meeting: true,
-    event: true,
-    glt: true,
-    club: true
-  };
 
   slackMessages: Card[] = [];
   slackFetched = false;
@@ -176,30 +159,24 @@ export class BackendconnectorService {
     });
   }
 
-  public getLocations() {
-    return this.locations;
-  }
-
-  public setLocations(new_locations: Location) {
-    this.locations = new_locations;
-  }
-
-  public getFilters() {
-    return this.filters;
-  }
-
-  public setFilters(new_filters: Filter) {
-    this.filters = new_filters;
-  }
-
+  /*
+    Put fake token to local storage so that buttons in top and bottom bars will be shown
+  */
   public login() {
     localStorage.setItem('token', this.token);
   }
 
+/*
+  Remove the fake token from local storage, so buttons in top and bottom bars are not shown
+*/
   public logout() {
     localStorage.removeItem('token');
   }
 
+  /*
+    For html, check wether there is token in localstorage, which means, that
+    one is logged in and components in topbar and tabbar are mean to show
+  */
   public showOnlyWhenLogged(): boolean {
     if (localStorage.getItem('token') == null) {
       return false;
