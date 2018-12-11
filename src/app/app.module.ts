@@ -24,7 +24,6 @@ import { TabbarComponent } from './components/tabbar/tabbar.component';
 import { CalendarListComponent } from './components/calendar-list/calendar-list.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { LogInPageComponent } from './components/log-in-page/log-in-page.component';
-import { LocationComponent } from './components/location/location.component';
 import { ConfeedComponent } from './components/confeed/confeed.component';
 import { CardComponent } from './components/card/card.component';
 import { StarredComponent } from './components/starred/starred.component';
@@ -43,7 +42,6 @@ import { TimePipe } from './pipes/time.pipe';
     TopbarComponent,
     FilterComponent,
     LogInPageComponent,
-    LocationComponent,
     ConfeedComponent,
     CardComponent,
     StarredComponent,

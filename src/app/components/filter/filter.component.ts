@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '../../models/location';
 import { Filter } from '../../models/filter';
 import { BackendconnectorService } from '../../services/backendconnector.service';
 import { map, filter } from 'rxjs/operators';
@@ -13,7 +12,6 @@ import { map, filter } from 'rxjs/operators';
 
 export class FilterComponent implements OnInit {
 
-  locations: Location;
   filters: Filter;
   slackFilters: Map<string, boolean>;
   slackButtons = [];
