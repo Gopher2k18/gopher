@@ -6,6 +6,10 @@ import { DatePipe } from '@angular/common';
 })
 export class DateformatterPipe implements PipeTransform {
 
+  /*
+    This shows the date, if the day is current day, it shows: Today and
+    if day is day before current day, it shows: Yesterday, otherwise just date
+  */
   constructor(private datePipe: DatePipe) { }
 
   transform(value: string): string {

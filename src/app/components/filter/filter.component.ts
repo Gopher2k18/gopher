@@ -61,6 +61,9 @@ export class FilterComponent implements OnInit {
     }
   }
 
+  /*
+    Set all filters to their default state, which is true
+  */
   public resetFilter(source: boolean) {
     if (source) {
       this.slackFilters.forEach((val, key, filters) => {
@@ -74,10 +77,16 @@ export class FilterComponent implements OnInit {
   }
 
 
+  /*
+    For slack button in html to show slack filters
+  */
   showSlack() {
     this.showingSlack = true;
   }
 
+  /*
+    For confluence button in html to show confluence filters
+  */
   showConfluence() {
     this.showingSlack = false;
   }

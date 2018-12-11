@@ -12,7 +12,9 @@ export class LogInPageComponent implements OnInit {
   constructor(private router: Router, private backendconnectorService: BackendconnectorService) { }
 
 
-
+  /*
+    Function for login button
+  */
   goToFeed(){
     console.log('go to feed');
     this.backendconnectorService.login();
