@@ -1,6 +1,6 @@
 # Gopher
 
-This project was our school project and it gather information from two different sources which are slack and confluence and show it in one place.
+This project is meant to be a help companies for improve their communication and make it faster and easier. It gather information from two different sources, which are slack and confluence and show it in one place. Application shows messages from slack which are important and shows newest blog posts and most important changes in confluence. Login system and calendar are not implemented yet.
 
 ## Features
 * Log in system
