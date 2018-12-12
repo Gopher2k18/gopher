@@ -23,6 +23,7 @@ export class StarredComponent implements OnInit {
   ngOnInit() {
     this.messages = this.backendconnectorService.fetchStars();
     this.empty = this.messages.length ? false : true;
+
   }
 
   public checkDate(date: string): boolean {

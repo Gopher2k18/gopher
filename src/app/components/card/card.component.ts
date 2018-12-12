@@ -8,6 +8,9 @@ import { Card } from './../../models/card';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
+/*
+  To show one message as card in feeds (slack , confluence and starred feed)
+*/
 export class CardComponent implements OnInit {
 
   @Input()

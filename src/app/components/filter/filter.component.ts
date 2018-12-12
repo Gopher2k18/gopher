@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '../../models/location';
 import { Filter } from '../../models/filter';
 import { BackendconnectorService } from '../../services/backendconnector.service';
 import { map, filter } from 'rxjs/operators';
@@ -13,7 +12,6 @@ import { map, filter } from 'rxjs/operators';
 
 export class FilterComponent implements OnInit {
 
-  locations: Location;
   filters: Filter;
   slackFilters: Map<string, boolean>;
   slackButtons = [];
@@ -61,6 +59,9 @@ export class FilterComponent implements OnInit {
     }
   }
 
+  /*
+    Set all filters to their default state, which is true
+  */
   public resetFilter(source: boolean) {
     if (source) {
       this.slackFilters.forEach((val, key, filters) => {
@@ -74,10 +75,16 @@ export class FilterComponent implements OnInit {
   }
 
 
+  /*
+    For slack button in html to show slack filters
+  */
   showSlack() {
     this.showingSlack = true;
   }
 
+  /*
+    For confluence button in html to show confluence filters
+  */
   showConfluence() {
     this.showingSlack = false;
   }

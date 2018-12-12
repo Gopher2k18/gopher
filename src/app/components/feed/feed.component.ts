@@ -27,11 +27,18 @@ export class FeedComponent implements OnInit {
     });
   }
 
-
+  /*
+    To decide in html to show or not to show the date
+  */
   show_date(date_to_shown: string): boolean {
     return this.date_map.get(date_to_shown);
   }
 
+
+  /*
+    With this one collects data to map structure so that the date label is shown only when needed
+    so that there will be no useless date labels, when same posting date repeats
+  */
   collect_date_info() {
     console.log('---testing function output---');
     let date_before = '';

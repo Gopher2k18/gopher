@@ -6,6 +6,9 @@ import { DatePipe } from '@angular/common';
 })
 export class TimePipe implements PipeTransform {
 
+  /*
+    Changes the timestamp to show only time, not date: [0-24 hours]:[0-60 minutes]
+  */
   constructor(private datePipe: DatePipe) { }
 
   transform(value: string): string {
