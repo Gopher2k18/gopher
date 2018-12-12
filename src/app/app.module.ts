@@ -64,7 +64,7 @@ import { TimePipe } from './pipes/time.pipe';
     MatCheckboxModule,
     MatButtonToggleModule
   ],
-  providers: [BackendconnectorService, HttpClientModule, DatePipe],
+  providers: [BackendconnectorService, HttpClientModule, DatePipe, DateformatterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
