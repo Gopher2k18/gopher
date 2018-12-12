@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {BackendconnectorService} from '../../services/backendconnector.service';
+import { Router } from '@angular/router';
+import { BackendconnectorService } from '../../services/backendconnector.service';
 
 @Component({
   selector: 'app-log-in-page',
@@ -15,14 +15,14 @@ export class LogInPageComponent implements OnInit {
   /*
     Function for login button
   */
-  goToFeed(){
+  goToFeed() {
     console.log('go to feed');
     this.backendconnectorService.login();
     this.router.navigate(['feed']);
   }
 
   ngOnInit() {
-    if(localStorage.getItem('token') !=null){
+    if (localStorage.getItem('token') != null) {
       this.router.navigate(['feed']);
     }
     this.backendconnectorService.getConfMessages().subscribe();

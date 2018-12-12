@@ -1,21 +1,26 @@
 <p id="empty"></p>
 <header>December</header>
 <p id="empty"></p>
-<body>    
+
+<body>
     <table style="width: 100%;">
         <tr>
-            <td id="left" (click)="switchWeek('left')" style="width: auto;"><mat-icon>keyboard_arrow_left</mat-icon></td>
-            <td id='0'  style="font-size:4vw;width: 12%;">Mon {{selectedWeek[0]}}</td>
+            <td id="left" (click)="switchWeek('left')" style="width: auto;">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </td>
+            <td id='0' style="font-size:4vw;width: 12%;">Mon {{selectedWeek[0]}}</td>
             <td id='1' style="font-size:4vw;width: 12%;">Tue {{selectedWeek[1]}}</td>
             <td id='2' style="font-size:4vw;width: 12%;">Wed {{selectedWeek[2]}}</td>
             <td id='3' style="font-size:4vw;width: 12%;">Thur {{selectedWeek[3]}}</td>
             <td id='4' style="font-size:4vw;width: 12%;">Fri {{selectedWeek[4]}}</td>
             <td id='5' style="font-size:4vw;width: 12%;">Sat {{selectedWeek[5]}}</td>
             <td id='6' style="font-size:4vw;width: 12%;">Sun {{selectedWeek[6]}}</td>
-            <td id="right" (click)="switchWeek('right')" style="width: auto;"><mat-icon>keyboard_arrow_right</mat-icon></td>
+            <td id="right" (click)="switchWeek('right')" style="width: auto;">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </td>
         </tr>
     </table>
- </body>
+</body>
 
 <ul *ngFor="let event of events">
     <li *ngIf="event.day == selectedWeek[0] || event.day == selectedWeek[1] || event.day == selectedWeek[2]

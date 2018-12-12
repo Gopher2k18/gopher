@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
   public card: Card;
 
   constructor(private backendconnectorService: BackendconnectorService) {
-   }
+  }
 
   ngOnInit() {
     this.data = this.data;
