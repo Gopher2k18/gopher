@@ -39,9 +39,9 @@ To get started with gopher you need to have npm package manager, slack, confluen
  
  ## Screenshots
  ![Screenshot](gopher-image.png)
- 1. Log in page
+ 1. Log in page(not working)
  2. Slack feed
- 3. Confluence feed
- 4. Event calendar
+ 3. Confluence feed(dummy data)
+ 4. Event calendar(not working)
  5. Starred page
  6. Filtering page
