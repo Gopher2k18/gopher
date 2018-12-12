@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Filter } from '../../models/filter';
 import { BackendconnectorService } from '../../services/backendconnector.service';
-import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-filter',
@@ -12,7 +10,6 @@ import { map, filter } from 'rxjs/operators';
 
 export class FilterComponent implements OnInit {
 
-  filters: Filter;
   slackFilters: Map<string, boolean>;
   slackButtons = [];
   confFilters: Map<string, boolean>;
