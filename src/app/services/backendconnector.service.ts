@@ -3,7 +3,6 @@ import { Card } from './../models/card';
 import { Message } from './../models/message';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Filter } from '../models/filter';
 import { from, Observable } from 'rxjs';
 
 @Injectable()
@@ -21,10 +20,11 @@ export class BackendconnectorService {
   confFetched = false;
   confFilter: Map<string, boolean> = new Map();
 
-  starred = new Set();
-
   constructor(private http: HttpClient) { }
 
+  /* Fetches slack messages from the backend in not already
+  fetched and store them in memeory after than returns a filtered set of messages
+  */
   public getSlackMessages() {
     if (this.slackFetched) {
       console.log(this.slackFilter);
@@ -62,10 +62,13 @@ export class BackendconnectorService {
     }
   }
 
+  // Fetches slack filter status
   getSlackFilter(): Map<string, boolean> {
     return this.slackFilter;
   }
 
+  /* Same as slack method, fetches data from server, then provides the data from memeory, filtered.
+  */
   public getConfMessages() {
     if (this.confFetched) {
       console.log(this.confFilter);
@@ -107,10 +110,12 @@ export class BackendconnectorService {
     }
   }
 
+  // Return filter values
   getConfFilter(): Map<string, boolean> {
     return this.confFilter;
   }
 
+  // Finds a message in the array and switches it's favorite status
   public star(card: Card) {
     if (card.source === 'slack') {
       const ind = this.slackMessages.indexOf(card);
@@ -121,6 +126,7 @@ export class BackendconnectorService {
     }
   }
 
+  // Return all stared elements from both arrays
   public fetchStars(): Card[] {
     const all = this.confMessages.concat(this.slackMessages);
     const filtered = all.filter((value, index, array) => {
@@ -132,33 +138,6 @@ export class BackendconnectorService {
 
   }
 
-  public flip(ts) {
-    this.slackMessages.find((msg, idx, obj) => {
-      if (msg.time === ts) {
-        console.log(`Found it ${idx}, ${msg.starred}`);
-        msg.flip();
-        obj[idx] = msg;
-        return true;
-      } else {
-        return false;
-      }
-    });
-  }
-
-  public getStarred(): Card[] {
-    const stard = [];
-    this.starred.forEach((val, val2, set) => {
-      stard.push(val);
-    });
-    return stard.sort((a: Card, b: Card) => {
-      if (a.time < b.time) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-  }
-
   /*
     Put fake token to local storage so that buttons in top and bottom bars will be shown
   */
@@ -166,9 +145,9 @@ export class BackendconnectorService {
     localStorage.setItem('token', this.token);
   }
 
-/*
-  Remove the fake token from local storage, so buttons in top and bottom bars are not shown
-*/
+  /*
+    Remove the fake token from local storage, so buttons in top and bottom bars are not shown
+  */
   public logout() {
     localStorage.removeItem('token');
   }

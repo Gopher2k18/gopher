@@ -26,6 +26,7 @@ export class StarredComponent implements OnInit {
 
   }
 
+  // Prevent duplicate date headers
   public checkDate(date: string): boolean {
     const y = this.pipeD.transform(date);
     const x = y !== this.prev;

@@ -1,4 +1,3 @@
-
 <div class="flexwrap">
   <button class="small" (click)="showSlack()" [ngClass]="{chosen:showingSlack,unchosen:!showingSlack}">
     <img class="image" color="primary" src="assets/icons/SlackIcon.png">
@@ -12,15 +11,15 @@
   <div *ngIf="showingSlack">
     <div class="flexwrap">
       <button mat-raised-button class="big_button" (click)="resetFilter(true)">Reset filters</button>
-      <button mat-raised-button *ngFor="let button of slackButtons" [ngClass]="getState(button, true)"
-       class="smaller_buttons" (click)="flip(button, true)">{{button}}</button>
+      <button mat-raised-button *ngFor="let button of slackButtons" [ngClass]="getState(button, true)" class="smaller_buttons"
+        (click)="flip(button, true)">{{button}}</button>
     </div>
   </div>
   <div *ngIf="!showingSlack">
-      <div class="flexwrap">
-          <button mat-raised-button class="big_button" (click)="resetFilter(false)">Reset filters</button>
-          <button mat-raised-button *ngFor="let button of confButtons" [ngClass]="getState(button, false)"
-           class="smaller_buttons" (click)="flip(button, false)">{{button}}</button>
-        </div>
+    <div class="flexwrap">
+      <button mat-raised-button class="big_button" (click)="resetFilter(false)">Reset filters</button>
+      <button mat-raised-button *ngFor="let button of confButtons" [ngClass]="getState(button, false)" class="smaller_buttons"
+        (click)="flip(button, false)">{{button}}</button>
+    </div>
   </div>
 </div>

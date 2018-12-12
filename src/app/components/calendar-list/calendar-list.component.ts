@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {Events} from '../../models/events';
-import {Activity} from '../../mock-events';
+import { Events } from '../../models/events';
 import { CalendarListService } from '../../services/calendar-list.service';
-import { stringify } from '@angular/core/src/util';
 
 @Component({
   selector: 'app-calendar-list',
@@ -12,7 +10,7 @@ import { stringify } from '@angular/core/src/util';
 export class CalendarListComponent implements OnInit {
 
 
- events: Events[];
+  events: Events[];
 
 
   selectedDay = '';
@@ -26,80 +24,80 @@ export class CalendarListComponent implements OnInit {
 
   selectedWeek: string[] = this.week1;
 
-  constructor(private calendarlistService: CalendarListService) {}
+  constructor(private calendarlistService: CalendarListService) { }
 
   ngOnInit() {
     this.getEvents();
 
-    
-    for(var i = 0; i<this.events.length; i++) {
 
-      for(var j = 0; j < 7; j++) {
+    for (let i = 0; i < this.events.length; i++) {
 
-        if(this.events[i].day === this.selectedWeek[j]) {
+      for (let j = 0; j < 7; j++) {
 
-          var dd = ''+j;
-        
-          document.getElementById(dd).style.backgroundColor = "#ffff66";
+        if (this.events[i].day === this.selectedWeek[j]) {
+
+          const dd = '' + j;
+
+          document.getElementById(dd).style.backgroundColor = '#ffff66';
 
         }
-      }  
+      }
     }
   }
 
-  //switching week with the left and right arrow
+  // switching week with the left and right arrow
   switchWeek(id: string) {
 
-    //switch to pervious week
-    if(id === 'left'){
-      if(this.selectedWeek == this.week2) {
+    // switch to pervious week
+    if (id === 'left') {
+      if (this.selectedWeek == this.week2) {
         this.selectedWeek = this.week1;
-      }else if(this.selectedWeek == this.week3){
+      } else if (this.selectedWeek == this.week3) {
         this.selectedWeek = this.week2;
       }
     }
-    
-    //switch to next week
-    if(id === 'right'){
-      if(this.selectedWeek == this.week2) {
+
+    // switch to next week
+    if (id === 'right') {
+      if (this.selectedWeek == this.week2) {
         this.selectedWeek = this.week3;
-      }else if(this.selectedWeek == this.week1){
+      } else if (this.selectedWeek == this.week1) {
         this.selectedWeek = this.week2;
       }
     }
 
-    //clear the background color to whitesmoke
-    for (var i =0; i<7; i++) {
+    // clear the background color to whitesmoke
+    for (var i = 0; i < 7; i++) {
 
-      var d = ''+i;
-      document.getElementById(d).style.backgroundColor = "whitesmoke";
+      let d = '' + i;
+      document.getElementById(d).style.backgroundColor = 'whitesmoke';
 
     }
 
-    //when there is/are event(s), backgroud color turn to yellow
-    for(var i = 0; i<this.events.length; i++) {
+    // when there is/are event(s), backgroud color turn to yellow
+    for (let i = 0; i < this.events.length; i++) {
 
-      for(var j = 0; j < 7; j++) {
+      for (let j = 0; j < 7; j++) {
 
-        if(this.events[i].day === this.selectedWeek[j]) {
+        if (this.events[i].day === this.selectedWeek[j]) {
 
-          var dd = ''+j;
-        
-          document.getElementById(dd).style.backgroundColor = "#ffff66";
+          const dd = '' + j;
+
+          document.getElementById(dd).style.backgroundColor = '#ffff66';
 
         }
-      }  
+      }
     }
 
   }
 
-  //(not used) when seleted, the font will be bold
-  select(id:string,d: string) {
-    console.log('current id: '+id);
-    console.log('sselected id: '+ this.selectedId);
-    this.selectedDay = d;    
-    document.getElementById(id).style.fontWeight = "bold";
-    document.getElementById(this.selectedId).style.fontWeight = "normal";
+  // (not used) when seleted, the font will be bold
+  select(id: string, d: string) {
+    console.log('current id: ' + id);
+    console.log('sselected id: ' + this.selectedId);
+    this.selectedDay = d;
+    document.getElementById(id).style.fontWeight = 'bold';
+    document.getElementById(this.selectedId).style.fontWeight = 'normal';
     this.selectedId = id;
     this.weekView = false;
     console.log(this.weekView);
@@ -107,7 +105,7 @@ export class CalendarListComponent implements OnInit {
 
   getEvents(): void {
     this.calendarlistService.getEvents()
-    .subscribe(events => this.events = events);
+      .subscribe(events => this.events = events);
   }
 
 }
